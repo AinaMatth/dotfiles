@@ -61,25 +61,25 @@ opt.cursorline = true
 
 -- List
 opt.list = true
-opt.listchars = { 
-    tab = '▶ ',            -- Use a right-pointing triangle for tabs
-    trail = '•',           -- Dots for trailing spaces
-    extends = '➔',        -- Arrow for lines that extend beyond the window
-    precedes = '➔',       -- Arrow for lines that precede the window
-    nbsp = '␣',           -- Special character for non-breaking spaces
-    lead = ' ',            -- No special character for leading spaces
-    multispace = '·',      -- Dots for multiple spaces (if desired)
+opt.listchars = {
+	tab = '▶ ', -- Use a right-pointing triangle for tabs
+	trail = '•', -- Dots for trailing spaces
+	extends = '➔', -- Arrow for lines that extend beyond the window
+	precedes = '➔', -- Arrow for lines that precede the window
+	nbsp = '␣', -- Special character for non-breaking spaces
+	lead = ' ', -- No special character for leading spaces
+	multispace = '·', -- Dots for multiple spaces (if desired)
 }
 
 
 -- Special char
 opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
 }
 -- Tab
 opt.smarttab = true
@@ -97,3 +97,6 @@ opt.ruler = false
 
 -- Completion
 opt.completeopt = 'menu,menuone,noinsert,fuzzy'
+
+-- Snacks
+opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
