@@ -11,6 +11,9 @@ return {
 				},
 			},
 		},
+		{
+			'saghen/blink.cmp'
+		}
 	},
 	config = function()
 		local lsp = require 'lspconfig'
@@ -32,11 +35,14 @@ return {
 			severity_sort = false,
 		})
 
+		-- Blink integration
+		local capabilities = require('blink.cmp').get_lsp_capabilities()
+
 		-- LSP Attach config
 		vim.api.nvim_create_autocmd('LspAttach', {
 			callback = function(args)
 				local client = vim.lsp.get_client_by_id(args.data.client_id)
-				if  not client then return end
+				if not client then return end
 				if client:supports_method('textDocument/implementation') then
 					-- Create a keymap for vim.lsp.buf.implementation
 				end
@@ -60,6 +66,7 @@ return {
 
 		-- LSP settings
 		lsp.lua_ls.setup {
+			capabilities = capabilities,
 		}
 	end,
 }
