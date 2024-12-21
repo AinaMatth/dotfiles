@@ -7,7 +7,7 @@ return {
 		dashboard = {
 			preset = {
 				header = [[
- █████╗ ██╗███╗   ██╗ █████╗
+ 	 █████╗ ██╗███╗   ██╗ █████╗
 	██╔══██╗██║████╗  ██║██╔══██╗
 	███████║██║██╔██╗ ██║███████║
 	██╔══██║██║██║╚██╗██║██╔══██║
@@ -31,9 +31,9 @@ return {
 		{ "<leader>zz", function() Snacks.zen.zoom() end,         desc = "Zen Zoom" },
 		{ "<leader>bs", function() Snacks.scratch() end,          desc = "Scratch Buffer" },
 		{ "<leader>bS", function() Snacks.scratch.select() end,   desc = "Scratch Buffer Selection" },
-		{ "<leader>Gb", function() Snacks.git.blame_line() end,   desc = "Git Blame Line" },
-		{ "<leader>Gf", function() Snacks.lazygit.log_file() end, desc = "git Current File History" },
-		{ "<leader>Gg", function() Snacks.lazygit() end,          desc = "git" },
-		{ "<leader>Gl", function() Snacks.lazygit.log() end,      desc = "git Log (cwd)" },
+		{ "<leader>gb", function() Snacks.git.blame_line() end,   desc = "Git Blame Line" },
+		{ "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
+		{ "<leader>gg", function() Snacks.lazygit() end,          desc = "Lazygit" },
+		{ "<leader>gl", function() Snacks.lazygit.log() end,      desc = "Lazygit Log (cwd)" },
 	},
 }
