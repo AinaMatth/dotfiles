@@ -100,3 +100,6 @@ opt.completeopt = 'menu,menuone,noinsert,fuzzy'
 
 -- Snacks
 opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+
+-- Height terminal
+opt.cmdheight = 0
