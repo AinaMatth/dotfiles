@@ -82,5 +82,38 @@ return {
 		lsp.lua_ls.setup {
 			capabilities = capabilities,
 		}
+		lsp.phpactor.setup {
+			on_attach = on_attach,
+			init_options = {
+				["language_server_phpstan.enabled"] = false,
+				["language_server_psalm.enabled"] = false,
+			},
+			capabilities = capabilities,
+		}
+		require 'lspconfig'.ts_ls.setup {
+			init_options = {
+				plugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+						languages = { "javascript", "typescript", "vue" },
+					},
+				},
+			},
+			filetypes = {
+				"javascript",
+				"typescript",
+				"vue",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescriptreact",
+				"typescript.tsx",
+			},
+			capabilities = capabilities,
+		}
+
+		-- You must make sure volar is setup
+		-- e.g. require'lspconfig'.volar.setup{}
+		-- See volar's section for more information
 	end,
 }
