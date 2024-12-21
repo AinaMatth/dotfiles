@@ -11,6 +11,8 @@ vim.g.maplocalleader = ' '
 
 local opt = vim.opt
 
+-- Wild mode
+opt.wildmode = 'longest:full,full'
 -- Line number
 opt.number = true
 opt.relativenumber = true
@@ -59,7 +61,16 @@ opt.cursorline = true
 
 -- List
 opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } 
+opt.listchars = { 
+    tab = '▶ ',            -- Use a right-pointing triangle for tabs
+    trail = '•',           -- Dots for trailing spaces
+    extends = '➔',        -- Arrow for lines that extend beyond the window
+    precedes = '➔',       -- Arrow for lines that precede the window
+    nbsp = '␣',           -- Special character for non-breaking spaces
+    lead = ' ',            -- No special character for leading spaces
+    multispace = '·',      -- Dots for multiple spaces (if desired)
+}
+
 
 -- Special char
 opt.fillchars = {

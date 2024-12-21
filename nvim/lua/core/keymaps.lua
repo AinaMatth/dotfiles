@@ -26,6 +26,9 @@ key({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" }, 
 -- quit
 key("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" }, opts)
 
+-- Lazy
+key('n','<leader>l','<cmd>:Lazy<CR>', {desc = 'Open Lazy'}, opts)
+
 -- Quickfix
 key("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" },opts)
 key("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" },opts)
