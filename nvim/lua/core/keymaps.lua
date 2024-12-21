@@ -7,9 +7,6 @@ local key = vim.keymap.set
 --  See `:help hlsearch`
 key('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Lua command
-key('n', '<leader>x', ':lua<CR>')
-
 -- Exit terminal mode
 key('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
