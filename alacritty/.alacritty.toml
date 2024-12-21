@@ -4,9 +4,10 @@
 	dynamic_title = true
 	blur = true
   startup_mode = "Fullscreen"
+
 [font]
 	normal = { family = "Hack Nerd Font", style="Regular"}
-	size = 16
+	size = 14
 
 [env]
 TERM = "xterm-256color"
