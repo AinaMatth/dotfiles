@@ -13,6 +13,10 @@ local opt = vim.opt
 
 -- Wild mode
 opt.wildmode = 'longest:full,full'
+
+--Gui colors
+opt.termguicolors = true
+
 -- Line number
 opt.number = true
 opt.relativenumber = true
@@ -32,7 +36,9 @@ opt.smartindent = true
 opt.breakindent = true
 opt.shiftround = true
 opt.shiftwidth = 2
+opt.numberwidth = 4
 opt.tabstop = 2
+opt.softtabstop = 4
 
 -- Files
 opt.fileencoding = 'utf-8'
@@ -97,9 +103,6 @@ opt.ruler = false
 
 -- Completion
 opt.completeopt = 'menu,menuone,noinsert,fuzzy'
-
--- Snacks
-opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
 
 -- Height terminal
 opt.cmdheight = 0
