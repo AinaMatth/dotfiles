@@ -11,7 +11,7 @@ return {
 			keys = {},
 		},
 		spec = {
-			{ '<leader>f', group = 'Telescope', mode = { 'n', 'x' } },
+			{ '<leader>s', group = 'Telescope', mode = { 'n', 'x' } },
 			{ '<leader>g', group = 'Git',mode = { 'n', 'v' } },
 		},
 	},
