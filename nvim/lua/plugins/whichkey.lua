@@ -1,6 +1,6 @@
 return {
 	'folke/which-key.nvim',
-	event = 'VimEnter',
+	-- event = 'VimEnter',
 	dependencies = {
 		'nvim-tree/nvim-web-devicons',
 	},
@@ -12,7 +12,7 @@ return {
 		},
 		spec = {
 			{ '<leader>s', group = 'Telescope', mode = { 'n', 'x' } },
-			{ '<leader>g', group = 'Git',mode = { 'n', 'v' } },
+			{ '<leader>g', group = 'Git',       mode = { 'n', 'v' } },
 		},
 	},
 }
