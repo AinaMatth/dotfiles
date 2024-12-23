@@ -2,10 +2,8 @@ return {
 	"folke/tokyonight.nvim",
 	lazy = true,
 	priority = 1000,
-	opts = {
-		style = 'storm',
-	},
+	opts = {},
 	init = function()
-		vim.cmd [[colorscheme tokyonight-storm]]
+		vim.cmd([[colorscheme tokyonight-storm]])
 	end,
 }
