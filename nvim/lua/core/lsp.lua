@@ -92,7 +92,7 @@ function M.setup()
 			function(server_name)
 				local server_configurations = servers[server_name] or {}
 				server_configurations.capabilities =
-						vim.tbl_deep_extend("force", {}, capabilities, server_configurations.capabilities or {})
+					vim.tbl_deep_extend("force", {}, capabilities, server_configurations.capabilities or {})
 				require("lspconfig")[server_name].setup(server_configurations)
 			end,
 		},
