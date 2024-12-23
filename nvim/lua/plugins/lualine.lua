@@ -1,7 +1,7 @@
 return {
 	'nvim-lualine/lualine.nvim',
-	event = 'VimEnter',
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	event = 'VeryLazy',
 	config = function()
 		local env_var_nvim_theme = os.getenv 'NVIM_THEME' or 'tokyonight'
 
