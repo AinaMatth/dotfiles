@@ -1,5 +1,5 @@
 # dotfiles/nvim
-
+![screenshot](images/output.png)
 <a href="https://dotfyle.com/AinaMatth/dotfiles-nvim"><img src="https://dotfyle.com/AinaMatth/dotfiles-nvim/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/AinaMatth/dotfiles-nvim"><img src="https://dotfyle.com/AinaMatth/dotfiles-nvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/AinaMatth/dotfiles-nvim"><img src="https://dotfyle.com/AinaMatth/dotfiles-nvim/badges/plugin-manager?style=flat" /></a>
@@ -73,9 +73,5 @@ NVIM_APPNAME=AinaMatth/dotfiles/nvim nvim
 
 + [echasnovski/mini.surround](https://dotfyle.com/plugins/echasnovski/mini.surround)
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
-## Language Servers
-
-+ html
-+ svelte
 
 
