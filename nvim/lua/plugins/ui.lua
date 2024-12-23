@@ -9,13 +9,12 @@ return {
 				preset = {
 					header = [[
 
-
- █████╗ ██╗███╗   ██╗ █████╗
-██╔══██╗██║████╗  ██║██╔══██╗
-███████║██║██╔██╗ ██║███████║
-██╔══██║██║██║╚██╗██║██╔══██║
-██║  ██║██║██║ ╚████║██║  ██║
-╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝
+	 █████╗ ██╗███╗   ██╗ █████╗
+	██╔══██╗██║████╗  ██║██╔══██╗
+	███████║██║██╔██╗ ██║███████║
+	██╔══██║██║██║╚██╗██║██╔══██║
+	██║  ██║██║██║ ╚████║██║  ██║
+	╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝
 
 
    ]],
@@ -29,9 +28,8 @@ return {
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 		},
-		keys = {
-			{ "<leader>z",  function() Snacks.zen() end,              desc = "Toggle Zen Mode" },
-			{ "<leader>Z",  function() Snacks.zen.zoom() end,         desc = "Toggle Zoom" },
+		--diagnostics
+		keys = { -- HACK: undefined snacks variable?
 			{ "<leader>.",  function() Snacks.scratch() end,          desc = "Toggle Scratch Buffer" },
 			{ "<leader>S",  function() Snacks.scratch.select() end,   desc = "Select Scratch Buffer" },
 			{ "<leader>gB", function() Snacks.gitbrowse() end,        desc = "Git Browse",                  mode = { "n", "v" } },
@@ -39,6 +37,16 @@ return {
 			{ "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
 			{ "<leader>gg", function() Snacks.lazygit() end,          desc = "Lazygit" },
 			{ "<leader>gl", function() Snacks.lazygit.log() end,      desc = "Lazygit Log (cwd)" },
+		}
+	},
+	{
+		'folke/todo-comments.nvim',
+		dependencies = { 'nvim-lua/plenary.nvim' },
+		opts = {
+			signs = true,
+			keywords = {
+				TEST = { icon = "󰥔 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+			},
 		}
 	},
 }
