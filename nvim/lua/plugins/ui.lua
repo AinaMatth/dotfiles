@@ -3,6 +3,7 @@ return {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
+		---@type snacks.Config
 		opts = {
 			bigfile = { enabled = true },
 			dashboard = {
@@ -28,10 +29,8 @@ return {
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 		},
-		--diagnostics
+		---@diagnostics disable: warnings
 		keys = { -- HACK: undefined snacks variable?
-			{ "<leader>.",  function() Snacks.scratch() end,          desc = "Toggle Scratch Buffer" },
-			{ "<leader>S",  function() Snacks.scratch.select() end,   desc = "Select Scratch Buffer" },
 			{ "<leader>gB", function() Snacks.gitbrowse() end,        desc = "Git Browse",                  mode = { "n", "v" } },
 			{ "<leader>gb", function() Snacks.git.blame_line() end,   desc = "Git Blame Line" },
 			{ "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
@@ -44,7 +43,7 @@ return {
 		dependencies = { 'nvim-lua/plenary.nvim' },
 		opts = {
 			signs = true,
-			keywords = {
+			keywords = { -- NOTE: Better icon
 				TEST = { icon = "󰥔 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 			},
 		}
