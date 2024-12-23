@@ -1,27 +1,27 @@
 return {
 	{
-		'neovim/nvim-lspconfig',
+		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{ 'williamboman/mason.nvim', config = true },
-			'williamboman/mason-lspconfig.nvim',
-			'WhoIsSethDaniel/mason-tool-installer.nvim',
+			{ "williamboman/mason.nvim", config = true },
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			{
-				'folke/lazydev.nvim',
-				ft = 'lua',
+				"folke/lazydev.nvim",
+				ft = "lua",
 				opts = {
 					library = {
-						{ path = 'luvit-meta/library', words = { 'vim%.uv' } },
+						{ path = "luvit-meta/library", words = { "vim%.uv" } },
 					},
 				},
 			},
 			{
-				'j-hui/fidget.nvim',
-				tag = 'v1.4.0',
+				"j-hui/fidget.nvim",
+				tag = "v1.4.0",
 				opts = {
 					progress = {
 						display = {
-							done_icon = '✓',
+							done_icon = "✓",
 						},
 					},
 					notification = {
@@ -31,16 +31,11 @@ return {
 					},
 				},
 			},
-			{ 'saghen/blink.cmp' },
+			{ "saghen/blink.cmp" },
 		},
 		config = function()
-			require('core.lsp').setup() -- Call the setup function from the module
+			require("core.lsp").setup() -- Call the setup function from the module
 		end,
 	},
-	{
-		'pmizio/typescript-tools.nvim',
-		ft = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "html" }, -- Load only for relevant file types
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
-	},
+	require("plugins.lsp.ts"),
 }
