@@ -48,6 +48,9 @@ function M.setup()
 		severity_sort = false,
 	})
 
+	local function on_attach(client, bufnr)
+		print("Attached to PHP buffer")
+	end
 	-- NOTE: Setup capabilities for LSP clients
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
@@ -77,12 +80,58 @@ function M.setup()
 				},
 			},
 		},
+		bashls = {},
+		cssls = {},
+		ts_ls = {
+			init_options = {
+				plugins = {
+					{
+						name = "@vue/typescript-plugin",
+						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+						languages = { "javascript", "typescript", "vue" },
+					},
+				},
+			},
+			root_dir = function(...)
+				return require("lspconfig.util").root_pattern(".git")(...)
+			end,
+			filetypes = {
+				"javascript",
+				"typescript",
+				"vue",
+			},
+		},
+		html = {},
+		tailwindcss = {
+			root_dir = function(...)
+				return require("lspconfig.util").root_pattern(".git")(...)
+			end,
+		},
+		vimls = {},
+		phpactor = {
+			on_attach = on_attach,
+			root_dir = function(fname)
+				return vim.fn.getcwd()
+			end,
+			init_options = {
+				["language_server_phpstan.enabled"] = false,
+				["language_server_psalm.enabled"] = false,
+			},
+		},
 	}
 
 	-- NOTE: Mason setup
-	require("mason").setup()
+	require("mason").setup({
+		ui = {
+			icons = {
+				package_installed = "✓",
+				package_pending = "➜",
+				package_uninstalled = "✗",
+			},
+		},
+	})
 	local ensure_installed = vim.tbl_keys(servers or {})
-	vim.list_extend(ensure_installed, { "stylua" })
+	vim.list_extend(ensure_installed, { "stylua", "black", "isort", "prettier", "prettierd", "eslint_d", "pylint" })
 	require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 	require("mason-lspconfig").setup({
@@ -92,7 +141,7 @@ function M.setup()
 			function(server_name)
 				local server_configurations = servers[server_name] or {}
 				server_configurations.capabilities =
-					vim.tbl_deep_extend("force", {}, capabilities, server_configurations.capabilities or {})
+						vim.tbl_deep_extend("force", {}, capabilities, server_configurations.capabilities or {})
 				require("lspconfig")[server_name].setup(server_configurations)
 			end,
 		},
