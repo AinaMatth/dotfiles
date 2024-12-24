@@ -71,12 +71,16 @@ return {
 	},
 	{
 		"folke/todo-comments.nvim",
+		event = { "BufReadPre", "BufWritePre" },
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = {
 			signs = true,
 			keywords = { -- NOTE: Better icon
 				TEST = { icon = "󰥔 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
 			},
+		},
+		keys = {
+			{ "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
 		},
 	},
 	{
