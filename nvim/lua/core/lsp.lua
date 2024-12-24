@@ -82,25 +82,30 @@ function M.setup()
 		},
 		bashls = {},
 		cssls = {},
-		ts_ls = {
-			init_options = {
-				plugins = {
-					{
-						name = "@vue/typescript-plugin",
-						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-						languages = { "javascript", "typescript", "vue" },
-					},
-				},
-			},
+		basedpyright = {
 			root_dir = function(...)
 				return require("lspconfig.util").root_pattern(".git")(...)
 			end,
-			filetypes = {
-				"javascript",
-				"typescript",
-				"vue",
-			},
 		},
+		-- ts_ls = {
+		-- 	init_options = {
+		-- 		plugins = {
+		-- 			{
+		-- 				name = "@vue/typescript-plugin",
+		-- 				location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+		-- 				languages = { "javascript", "typescript", "vue" },
+		-- 			},
+		-- 		},
+		-- 	},
+		-- 	root_dir = function(...)
+		-- 		return require("lspconfig.util").root_pattern(".git")(...)
+		-- 	end,
+		-- 	filetypes = {
+		-- 		"javascript",
+		-- 		"typescript",
+		-- 		"vue",
+		-- 	},
+		-- },
 		html = {},
 		tailwindcss = {
 			root_dir = function(...)
