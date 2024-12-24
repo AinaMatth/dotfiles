@@ -6,7 +6,7 @@
 local opt = vim.opt
 
 -- Wild mode
-opt.wildmode = 'longest:full,full'
+opt.wildmode = "longest:full,full"
 
 --Gui colors
 opt.termguicolors = true
@@ -16,10 +16,10 @@ opt.number = true
 opt.relativenumber = true
 
 -- Mouse use
-opt.mouse = 'a'
+opt.mouse = "a"
 
 -- Clipboard
-opt.clipboard = 'unnamedplus'
+opt.clipboard = "unnamedplus"
 
 -- Window title
 opt.title = true
@@ -35,7 +35,7 @@ opt.tabstop = 2
 opt.softtabstop = 4
 
 -- Files
-opt.fileencoding = 'utf-8'
+opt.fileencoding = "utf-8"
 
 -- Backup files
 opt.backup = false
@@ -62,15 +62,14 @@ opt.cursorline = true
 -- List
 opt.list = true
 opt.listchars = {
-	tab = '▶ ', -- Use a right-pointing triangle for tabs
-	trail = '•', -- Dots for trailing spaces
-	extends = '➔', -- Arrow for lines that extend beyond the window
-	precedes = '➔', -- Arrow for lines that precede the window
-	nbsp = '␣', -- Special character for non-breaking spaces
-	lead = ' ', -- No special character for leading spaces
-	multispace = '·', -- Dots for multiple spaces (if desired)
+	tab = "▶ ", -- Use a right-pointing triangle for tabs
+	trail = "•", -- Dots for trailing spaces
+	extends = "➔", -- Arrow for lines that extend beyond the window
+	precedes = "➔", -- Arrow for lines that precede the window
+	nbsp = "␣", -- Special character for non-breaking spaces
+	lead = " ", -- No special character for leading spaces
+	multispace = "·", -- Dots for multiple spaces (if desired)
 }
-
 
 -- Special char
 opt.fillchars = {
@@ -96,7 +95,10 @@ opt.splitright = true -- Put new windows right of current
 opt.ruler = false
 
 -- Completion
-opt.completeopt = 'menu,menuone,noinsert,fuzzy'
+opt.completeopt = "menu,menuone,noinsert,fuzzy"
 
 -- Height terminal
 opt.cmdheight = 0
+
+-- Stop depreciation messages
+opt.shortmess:append("S")
