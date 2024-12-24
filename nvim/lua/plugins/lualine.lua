@@ -6,7 +6,7 @@ return {
 		local env_var_nvim_theme = os.getenv("NVIM_THEME") or "tokyonight"
 
 		local themes = {
-			tokyonight = "tokyonight-storm",
+			tokyonight = "tokyonight",
 		}
 		local mode = {
 			"mode",

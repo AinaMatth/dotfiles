@@ -17,14 +17,15 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "isort", "black" },
-			javascript = { "prettierd", "prettier", stop_after_first = true },
-			typescript = { "prettier" },
-			javascriptreact = { "prettier" },
-			typescriptreact = { "prettier" },
-			svelte = { "prettier" },
-			css = { "prettier" },
-			html = { "prettier" },
+			python = { "isort", "black", "ruff" },
+			javascript = { "prettierd", "prettier", "biome", stop_after_first = true },
+			typescript = { "prettier", "biome" },
+			javascriptreact = { "prettier", "biome" },
+			typescriptreact = { "prettier", "biome" },
+			svelte = { "prettier", "biome" },
+			css = { "prettier", "biome" },
+			html = { "prettier", "biome" },
+			php = { "php-cs-fixer" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",

@@ -185,6 +185,7 @@ return {
 				desc = "Document Diagnostics",
 			},
 			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+			{ "<leader>st", "<cmd>TodoTelescope<cr>",       desc = "TodoTelescope" },
 		},
 		opts = {
 			defaults = {
