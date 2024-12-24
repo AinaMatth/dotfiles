@@ -18,5 +18,6 @@ key("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 -- Lazy
 key("n", "<leader>l", "<cmd>:Lazy<CR>", { desc = "Lazy" })
 
--- Lazy
+-- Mason
 key("n", "<leader>m", "<cmd>:Mason<CR>", { desc = "Mason" })
+
