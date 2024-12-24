@@ -158,10 +158,12 @@ return {
 			{ "nvim-tree/nvim-web-devicons",            enabled = vim.g.have_nerd_font },
 		},
 		keys = {
+
 			{
-				"<leader>s,",
-				"<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-				desc = "Switch Buffer",
+				"n",                                                             -- Mode: Normal
+				"<leader>sc",                                                    -- Key combination
+				'<cmd>Telescope find_files({ cwd = vim.fn.stdpath("config") })<CR>', -- Command to execute
+				"[S]earch [N]eovim files",                                       -- Description of the mapping
 			},
 			{
 				"<leader>s/",
@@ -178,14 +180,12 @@ return {
 			{ "<leader>gc", "<cmd>Telescope git_commits<cr>",               desc = "Git Commits" },
 			{ "<leader>gs", "<cmd>Telescope git_status<cr>",                desc = "Git Status" },
 			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-			{ "<leader>sC", "<cmd>Telescope commands<cr>",                  desc = "Commands" },
 			{
 				"<leader>sd",
 				"<cmd>Telescope diagnostics bufnr=0<cr>",
 				desc = "Document Diagnostics",
 			},
 			{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
-			{ "<leader>st", "<cmd>TodoTelescope<cr>",       desc = "TodoTelescope" },
 		},
 		opts = {
 			defaults = {
