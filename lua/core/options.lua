@@ -3,6 +3,12 @@
 -- NOTE: Global settings
 --  For more options, you can see `:help option-list`
 
+-- Hide deprecation warnings
+vim.g.deprecation_warnings = false
+
+-- Snacks
+vim.g.snacks_animate = true
+
 local opt = vim.opt
 
 -- Wild mode
@@ -30,19 +36,12 @@ opt.smartindent = true
 opt.breakindent = true
 opt.shiftround = true
 opt.shiftwidth = 2
-opt.numberwidth = 4
 opt.tabstop = 2
-opt.softtabstop = 4
+opt.softtabstop = 2
 
--- Files
-opt.fileencoding = "utf-8"
-
--- Backup files
-opt.backup = false
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+-- Search
 opt.ignorecase = true
-opt.smartcase = true
+opt.hlsearch = true
 
 -- Statusline
 opt.laststatus = 3
@@ -55,9 +54,6 @@ opt.timeoutlen = 300
 
 -- Scrolloff
 opt.scrolloff = 10
-
--- Cursor line
-opt.cursorline = true
 
 -- List
 opt.list = true
@@ -85,20 +81,17 @@ opt.smarttab = true
 
 -- Wrap
 opt.wrap = false
+opt.linebreak = true
 
 -- Split
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
 
--- Ruler
-opt.ruler = false
-
 -- Completion
-opt.completeopt = "menu,menuone,noinsert,fuzzy"
+opt.completeopt = "menu,menuone,noselect,fuzzy"
 
--- Height terminal
-opt.cmdheight = 0
-
--- Stop depreciation messages
-opt.shortmess:append("S")
+opt.showmode = false
+opt.confirm = true
+opt.foldlevel = 99
+opt.ruler = false
