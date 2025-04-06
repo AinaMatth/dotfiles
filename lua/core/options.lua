@@ -93,11 +93,10 @@ opt.completeopt = "menu,menuone,noselect,fuzzy"
 
 opt.showmode = false
 opt.confirm = true
-opt.foldlevel = 99
 opt.ruler = false
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_lines = true,
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "",
