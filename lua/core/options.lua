@@ -106,3 +106,6 @@ vim.diagnostic.config({
 		},
 	},
 })
+
+-- Easy escape terminal mode
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
