@@ -24,6 +24,10 @@ opt.relativenumber = true
 -- Mouse use
 opt.mouse = "a"
 
+-- Search settings
+opt.smartcase = true
+opt.ignorecase = true
+
 -- Clipboard
 opt.clipboard = "unnamedplus"
 
@@ -84,8 +88,8 @@ opt.wrap = false
 opt.linebreak = true
 
 -- Split
+opt.inccommand = "split"
 opt.splitbelow = true -- Put new windows below current
-opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
 
 -- Completion
@@ -106,6 +110,3 @@ vim.diagnostic.config({
 		},
 	},
 })
-
--- Easy escape terminal mode
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
