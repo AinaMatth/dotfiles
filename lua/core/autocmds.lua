@@ -130,3 +130,5 @@ end
 vim.keymap.set("n", "<leader>r", function()
   RunFile()
 end, { noremap = true, silent = true, desc = "Run the current file based on its type" })
+
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Lazy" })
