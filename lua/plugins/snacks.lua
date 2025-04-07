@@ -102,7 +102,7 @@ return {
     {
       "<leader>sc",
       function()
-        Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+        Snacks.picker.files { cwd = vim.fn.stdpath "config" }
       end,
       desc = "Search Config File",
     },
@@ -336,10 +336,10 @@ return {
         end
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
-        Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-        Snacks.toggle.diagnostics():map("<leader>ud")
-        Snacks.toggle.line_number():map("<leader>ul")
+        Snacks.toggle.option("wrap", { name = "Wrap" }):map "<leader>uw"
+        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map "<leader>uL"
+        Snacks.toggle.diagnostics():map "<leader>ud"
+        Snacks.toggle.line_number():map "<leader>ul"
       end,
     })
   end,

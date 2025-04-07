@@ -99,7 +99,7 @@ opt.showmode = false
 opt.confirm = true
 opt.ruler = false
 
-vim.diagnostic.config({
+vim.diagnostic.config {
 	virtual_lines = true,
 	signs = {
 		text = {
@@ -109,4 +109,4 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.HINT] = "󰌵",
 		},
 	},
-})
+}

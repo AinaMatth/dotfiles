@@ -19,7 +19,7 @@ return {
 			{
 				"<leader>?",
 				function()
-					require("which-key").show({ global = false })
+					require("which-key").show { global = false }
 				end,
 				desc = "Buffer Local Keymaps (which-key)",
 			},
@@ -45,11 +45,10 @@ return {
 			{
 				"<leader>sT",
 				function()
-					Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+					Snacks.picker.todo_comments { keywords = { "TODO", "FIX", "FIXME" } }
 				end,
 				desc = "Todo/Fix/Fixme",
 			},
 		},
 	},
 }
-

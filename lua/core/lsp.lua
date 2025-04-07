@@ -1,4 +1,4 @@
-require("mason").setup({})
+require("mason").setup {}
 -- Setup language servers.
 
 vim.lsp.config.lua_ls = {
@@ -14,7 +14,7 @@ vim.lsp.config.lua_ls = {
     },
   },
 }
-vim.lsp.enable("lua_ls")
+vim.lsp.enable "lua_ls"
 
 vim.lsp.config.ruff = {
   cmd = { "ruff", "server" },
@@ -22,7 +22,7 @@ vim.lsp.config.ruff = {
   single_file_support = true,
   settings = {},
 }
-vim.lsp.enable("ruff")
+vim.lsp.enable "ruff"
 
 vim.lsp.config.basedpyright = {
   cmd = { "basedpyright-langserver", "--stdio" },
@@ -38,7 +38,7 @@ vim.lsp.config.basedpyright = {
     },
   },
 }
-vim.lsp.enable("basedpyright")
+vim.lsp.enable "basedpyright"
 
 vim.lsp.config.rust_analyzer = {
   cmd = { "rust-analyzer" },
@@ -46,4 +46,4 @@ vim.lsp.config.rust_analyzer = {
   single_file_support = true,
   settings = {},
 }
-vim.lsp.enable("rust_analyzer")
+vim.lsp.enable "rust_analyzer"

@@ -4,9 +4,9 @@ return {
   lazy = true, -- Load on demand
 
   config = function()
-    local configs = require("nvim-treesitter.configs")
+    local configs = require "nvim-treesitter.configs"
 
-    configs.setup({
+    configs.setup {
       ensure_installed = {
         "bash",
         "c",
@@ -31,7 +31,7 @@ return {
         additional_vim_regex_highlighting = { "ruby" },
       },
       indent = { enable = true, disable = { "ruby" } },
-    })
+    }
   end,
 
   event = { "BufReadPost", "BufNewFile" }, -- Trigger config after buffer is loaded

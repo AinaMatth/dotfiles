@@ -5,7 +5,7 @@ end
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
+  group = augroup "highlight_yank",
   callback = function()
     (vim.hl or vim.highlight).on_yank()
   end,
@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("close_with_q"),
+  group = augroup "close_with_q",
   pattern = {
     "PlenaryTestPopup",
     "checkhealth",
@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", function()
-      vim.cmd("close")
+      vim.cmd "close"
       pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
     end, {
       buffer = event.buf,
@@ -45,14 +45,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Auto-format ("lint") on save.
     -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
     if
-        not client:supports_method("textDocument/willSaveWaitUntil")
-        and client:supports_method("textDocument/formatting")
+        not client:supports_method "textDocument/willSaveWaitUntil"
+        and client:supports_method "textDocument/formatting"
     then
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
         buffer = args.buf,
         callback = function()
-          vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+          vim.lsp.buf.format { bufnr = args.buf, id = client.id, timeout_ms = 1000 }
         end,
       })
     end
@@ -107,20 +107,20 @@ vim.api.nvim_create_autocmd("LspProgress", {
 
 function RunFile()
   -- Save the current file
-  vim.cmd("write")
+  vim.cmd "write"
 
   -- Get the file type
   local filetype = vim.bo.filetype
 
   -- Run the appropriate command based on the file type
   if filetype == "python" then
-    vim.cmd("vsplit | terminal python3 " .. vim.fn.expand("%"))
+    vim.cmd("vsplit | terminal python3 " .. vim.fn.expand "%")
   elseif filetype == "javascript" then
-    vim.cmd("vsplit | terminal node " .. vim.fn.expand("%"))
+    vim.cmd("vsplit | terminal node " .. vim.fn.expand "%")
   elseif filetype == "typescript" then
-    vim.cmd("vsplit | terminal ts-node " .. vim.fn.expand("%"))
+    vim.cmd("vsplit | terminal ts-node " .. vim.fn.expand "%")
   elseif filetype == "rust" then
-    vim.cmd("vsplit | terminal cargo run")
+    vim.cmd "vsplit | terminal cargo run"
   else
     print("Unsupported file type: " .. filetype)
   end
