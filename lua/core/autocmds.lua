@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     local value = ev.data.params
-        .value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
+    .value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
     if not client or type(value) ~= "table" then
       return
     end
@@ -104,3 +104,29 @@ vim.api.nvim_create_autocmd("LspProgress", {
     })
   end,
 })
+
+function RunFile()
+  -- Save the current file
+  vim.cmd("write")
+
+  -- Get the file type
+  local filetype = vim.bo.filetype
+
+  -- Run the appropriate command based on the file type
+  if filetype == "python" then
+    vim.cmd("vsplit | terminal python3 " .. vim.fn.expand("%"))
+  elseif filetype == "javascript" then
+    vim.cmd("vsplit | terminal node " .. vim.fn.expand("%"))
+  elseif filetype == "typescript" then
+    vim.cmd("vsplit | terminal ts-node " .. vim.fn.expand("%"))
+  elseif filetype == "rust" then
+    vim.cmd("vsplit | terminal cargo run")
+  else
+    print("Unsupported file type: " .. filetype)
+  end
+end
+
+-- Map <leader>r to run the current file
+vim.keymap.set("n", "<leader>r", function()
+  RunFile()
+end, { noremap = true, silent = true, desc = "Run the current file based on its type" })
