@@ -1,21 +1,21 @@
 return {
-  "echasnovski/mini.nvim",
+  'echasnovski/mini.nvim',
   version = false,
   config = function()
     local function setup(module, config)
-      local ok, mod = pcall(require, "mini." .. module)
-      if ok and mod and type(mod.setup) == "function" then
+      local ok, mod = pcall(require, 'mini.' .. module)
+      if ok and mod and type(mod.setup) == 'function' then
         mod.setup(config or {})
       else
-        vim.notify(string.format("Failed to setup mini.nvim module: %s", module), vim.log.levels.WARN)
+        vim.notify(string.format('Failed to setup mini.nvim module: %s', module), vim.log.levels.WARN)
       end
     end
 
     -- Setup mini.pairs
-    vim.api.nvim_create_autocmd("InsertEnter", {
-      pattern = "*",
+    vim.api.nvim_create_autocmd('InsertEnter', {
+      pattern = '*',
       callback = function()
-        setup("pairs", {
+        setup('pairs', {
           modes = { insert = true, command = true, terminal = false },
           markdown = true,
         })
@@ -23,40 +23,40 @@ return {
     })
 
     -- Setup mini.ai
-    vim.api.nvim_create_autocmd("InsertEnter", {
-      pattern = "*",
+    vim.api.nvim_create_autocmd('InsertEnter', {
+      pattern = '*',
       callback = function()
-        setup("ai", {
+        setup('ai', {
           n_lines = 500,
         })
       end,
     })
 
     -- Setup mini.git on VimEnter
-    vim.api.nvim_create_autocmd("VimEnter", {
-      pattern = "*",
+    vim.api.nvim_create_autocmd('VimEnter', {
+      pattern = '*',
       callback = function()
-        setup("git", {})
+        setup('git', {})
       end,
     })
 
     -- Setup mini.icons on VimEnter
-    vim.api.nvim_create_autocmd("VimEnter", {
-      pattern = "*",
+    vim.api.nvim_create_autocmd('VimEnter', {
+      pattern = '*',
       callback = function()
-        setup("icons", {
+        setup('icons', {
           file = {
-            [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
-            ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
+            ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
+            ['devcontainer.json'] = { glyph = '', hl = 'MiniIconsAzure' },
           },
           filetype = {
-            dotenv = { glyph = "", hl = "MiniIconsYellow" },
+            dotenv = { glyph = '', hl = 'MiniIconsYellow' },
             file = {
-              [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
-              ["devcontainer.json"] = { glyph = "", hl = "MiniIconsAzure" },
+              ['.keep'] = { glyph = '󰊢', hl = 'MiniIconsGrey' },
+              ['devcontainer.json'] = { glyph = '', hl = 'MiniIconsAzure' },
             },
             filetype = {
-              dotenv = { glyph = "", hl = "MiniIconsYellow" },
+              dotenv = { glyph = '', hl = 'MiniIconsYellow' },
             },
           },
         })
@@ -64,10 +64,10 @@ return {
     })
 
     -- Setup mini.statusline on VimEnter
-    vim.api.nvim_create_autocmd("VimEnter", {
-      pattern = "*",
+    vim.api.nvim_create_autocmd('VimEnter', {
+      pattern = '*',
       callback = function()
-        setup("statusline", {
+        setup('statusline', {
           use_icons = vim.g.have_nerd_font,
           set_vim_settings = false,
           content = {
@@ -84,22 +84,22 @@ return {
               return MiniStatusline.combine_groups {
                 { hl = mode_hl,                  strings = { mode:upper() } },
                 {
-                  hl = "MiniStatuslineDevinfo",
+                  hl = 'MiniStatuslineDevinfo',
                   strings = { git, diff },
                 },
-                "%<", -- Mark general truncate point
-                { hl = "MiniStatuslineFilename", strings = { filename } },
-                "%=", -- End left alignment
+                '%<', -- Mark general truncate point
+                { hl = 'MiniStatuslineFilename', strings = { filename } },
+                '%=', -- End left alignment
                 {
-                  hl = "MiniStatuslineFileinfo",
+                  hl = 'MiniStatuslineFileinfo',
                   strings = {
-                    vim.bo.filetype ~= ""
-                    and require("mini.icons").get("filetype", vim.bo.filetype) .. " " .. vim.bo.filetype,
+                    vim.bo.filetype ~= ''
+                    and require('mini.icons').get('filetype', vim.bo.filetype) .. ' ' .. vim.bo.filetype,
                     diagnostics,
                     lsp,
                   },
                 },
-                { hl = mode_hl, strings = { "%l:%v" } },
+                { hl = mode_hl, strings = { '%l:%v' } },
               }
             end,
           },
