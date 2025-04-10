@@ -104,5 +104,3 @@ vim.api.nvim_create_autocmd('LspProgress', {
 		})
 	end,
 })
-
-vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<CR>', { desc = 'Lazy' })

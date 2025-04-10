@@ -4,7 +4,7 @@
 --  For more options, you can see `:help option-list`
 
 -- Hide deprecation warnings
-vim.g.deprecation_warnings = false
+vim.g.deprecated = true
 
 -- Snacks
 vim.g.snacks_animate = true
