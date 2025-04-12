@@ -1,7 +1,15 @@
 return {
-	'williamboman/mason.nvim',
-	cmd = 'Mason',
-	keys = { { '<leader>cm', '<cmd>Mason<cr>', desc = 'Mason' } },
-	build = ':MasonUpdate',
-	opts = { ensure_installed = { 'biome', 'stylua', 'black', 'ruff', 'isort', 'prettierd', 'shfmt' } },
+  'williamboman/mason.nvim',
+  cmd = { 'Mason', 'MasonInstall', 'MasonUpdate' },
+  keys = { { '<leader>cm', '<cmd>Mason<cr>', desc = 'Mason' } },
+  build = ':MasonUpdate',
+  opts = {
+    ui = {
+      icons = {
+        package_pending = ' ',
+        package_installed = ' ',
+        package_uninstalled = ' ',
+      },
+    },
+  },
 }

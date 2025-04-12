@@ -2,109 +2,68 @@
 -- See `:help vim.opt`
 -- NOTE: Global settings
 --  For more options, you can see `:help option-list`
-
+local g = vim.g
 -- Hide deprecation warnings
-vim.g.deprecated = true
-
--- Snacks
-vim.g.snacks_animate = true
+g.deprecated = false
+-- disable some default providers
+g.loaded_node_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
 
 local opt = vim.opt
 
---Gui colors
-opt.termguicolors = true
+-- Core Editing XP
+opt.autoindent = true
+opt.expandtab = true
+opt.smarttab = true
+opt.backspace = 'indent,eol,start'
 
--- Line number
+-- Visual Cues and Navigation
 opt.number = true
-opt.relativenumber = true
+opt.cursorline = true
+opt.hlsearch = true
+opt.incsearch = true
+opt.scrolloff = 8
 
--- Mouse use
+-- Comfort features
 opt.mouse = 'a'
-
--- Search settings
-opt.smartcase = true
-opt.ignorecase = true
-
--- Clipboard
+opt.wildmenu = true
+opt.wildmode = 'longest:full,full'
 opt.clipboard = 'unnamedplus'
 
--- Window title
-opt.title = true
-
--- Indentation
-opt.autoindent = true
-opt.smartindent = true
-opt.breakindent = true
-opt.shiftround = true
+-- Additional sensible defaults
+opt.ignorecase = true
+opt.smartcase = true
 opt.shiftwidth = 2
 opt.tabstop = 2
 opt.softtabstop = 2
-
--- Search
-opt.ignorecase = true
-opt.hlsearch = true
-
--- Statusline
-opt.laststatus = 3
-
--- Update time
+opt.termguicolors = true
+opt.splitright = true
+opt.splitbelow = true
 opt.updatetime = 250
+opt.timeout = true
+opt.timeoutlen = 500
 
--- Map sequence wait time
-opt.timeoutlen = 300
+-- Code-Specific Features
+vim.cmd 'syntax enable'
+opt.smartindent = true
+opt.showmatch = true
 
--- Scrolloff
-opt.scrolloff = 10
+-- Optional tweaks
+vim.opt.laststatus = 2
+vim.opt.showmode = true
+vim.opt.showcmd = true
+vim.opt.signcolumn = 'yes'
 
 -- List
 opt.list = true
 opt.listchars = {
-	tab = '▶ ', -- Use a right-pointing triangle for tabs
-	trail = '•', -- Dots for trailing spaces
-	extends = '➔', -- Arrow for lines that extend beyond the window
-	precedes = '➔', -- Arrow for lines that precede the window
-	nbsp = '␣', -- Special character for non-breaking spaces
-	lead = ' ', -- No special character for leading spaces
-	multispace = '·', -- Dots for multiple spaces (if desired)
-}
-
--- Special char
-opt.fillchars = {
-	foldopen = '',
-	foldclose = '',
-	fold = ' ',
-	foldsep = ' ',
-	diff = '╱',
-	eob = ' ',
-}
--- Tab
-opt.smarttab = true
-
--- Wrap
-opt.wrap = false
-opt.linebreak = true
-
--- Split
-opt.inccommand = 'split'
-opt.splitbelow = true -- Put new windows below current
-opt.splitright = true -- Put new windows right of current
-
--- Completion
-opt.completeopt = 'menuone,noinsert,fuzzy'
-
-opt.showmode = false
-opt.confirm = true
-opt.ruler = false
-
-vim.diagnostic.config {
-	virtual_lines = true,
-	underline = false,
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = '',
-			[vim.diagnostic.severity.WARN] = '',
-			[vim.diagnostic.severity.INFO] = '',
-			[vim.diagnostic.severity.HINT] = '󰌵',
-		},
-	},
+  tab = '▶ ', -- Use a right-pointing triangle for tabs
+  trail = '•', -- Dots for trailing spaces
+  extends = '➔', -- Arrow for lines that extend beyond the window
+  precedes = '➔', -- Arrow for lines that precede the window
+  nbsp = '␣', -- Special character for non-breaking spaces
+  lead = ' ', -- No special character for leading spaces
+  multispace = '·', -- Dots for multiple spaces (if desired)
 }

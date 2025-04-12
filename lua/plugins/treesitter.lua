@@ -1,8 +1,20 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
-  lazy = true, -- Load on demand
-
+  event = { 'BufReadPost', 'BufNewFile' },
+  cmd = {
+    'EditQuery',
+    'Inspect',
+    'InspectTree',
+    'TSBufDisable',
+    'TSBufEnable',
+    'TSDisable',
+    'TSEnable',
+    'TSInstall',
+    'TSModuleInfo',
+    'TSUpdate',
+    'TSUpdateSync',
+  },
   config = function()
     local configs = require 'nvim-treesitter.configs'
 
@@ -28,11 +40,9 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = { 'ruby' },
+        use_languagetree = true,
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true },
     }
   end,
-
-  event = { 'BufReadPost', 'BufNewFile' }, -- Trigger config after buffer is loaded
 }
