@@ -2,11 +2,11 @@
 -- See `:help vim.opt`
 -- NOTE: Global settings
 --  For more options, you can see `:help option-list`
-
-vim.ui.select = require('mini.files').ui_select
 local g = vim.g
 -- Hide deprecation warnings
-g.deprecated = false
+g.deprecated = true
+g.mapleader = ' '
+g.maplocalleader = ' '
 -- disable some default providers
 g.loaded_node_provider = 0
 g.loaded_python3_provider = 0
@@ -69,3 +69,22 @@ opt.listchars = {
   lead = ' ', -- No special character for leading spaces
   multispace = '·', -- Dots for multiple spaces (if desired)
 }
+
+-- Diagnostics ========================================================
+vim.diagnostic.config {
+  virtual_lines = true,
+  underline = false,
+  float = {
+    border = 'single',
+    severity_sort = false,
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '󰌵',
+    },
+  },
+}
+
