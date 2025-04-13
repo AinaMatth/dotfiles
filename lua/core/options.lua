@@ -2,6 +2,8 @@
 -- See `:help vim.opt`
 -- NOTE: Global settings
 --  For more options, you can see `:help option-list`
+
+vim.ui.select = require('mini.files').ui_select
 local g = vim.g
 -- Hide deprecation warnings
 g.deprecated = false

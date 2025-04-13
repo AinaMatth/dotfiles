@@ -31,6 +31,10 @@ M.config = {
 
     -- Window commands
     { mode = 'n', keys = '<C-w>',    desc = 'Window commands' },
+
+    -- `z` key
+    { mode = 'n', keys = 'z' },
+    { mode = 'x', keys = 'z' },
   },
   clues = {
     require('mini.clue').gen_clues.builtin_completion(),
@@ -39,7 +43,8 @@ M.config = {
     require('mini.clue').gen_clues.registers(),
     require('mini.clue').gen_clues.windows(),
     require('mini.clue').gen_clues.z(),
-    { mode = 'n', keys = '<leader>f', desc = 'Find files' },
+    require('mini.clue').gen_clues.z(),
+    { mode = 'n', keys = '<Leader>s', desc = '[S]earch' },
   },
 }
 

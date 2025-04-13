@@ -5,7 +5,8 @@ return {
     compile = true,
     commentStyle = { italic = false },
   },
-  config = function()
+  config = function(_, opts)
+    require('kanagawa').setup(opts)
     vim.cmd 'colorscheme kanagawa'
   end,
 }
