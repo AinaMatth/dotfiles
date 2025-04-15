@@ -422,6 +422,13 @@ return {
       desc = 'Select Scratch Buffer',
     },
     {
+      '<leader>dps',
+      function()
+        Snacks.profiler.scratch()
+      end,
+      desc = 'Profiler Scratch Buffer',
+    },
+    {
       '<leader>n',
       function()
         Snacks.notifier.show_history()

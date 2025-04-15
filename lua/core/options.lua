@@ -1,10 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
+vim.g.snacks_animate = true
 vim.g.have_nerd_font = true
-vim.o.background = 'dark'
+vim.g.deprecation_warnings = false
 vim.o.termguicolors = true
-vim.cmd.colorscheme 'habamax'
 vim.o.completeopt = 'menu,menuone,popup,fuzzy'
 
 vim.g.loaded_node_provider = 0
@@ -22,6 +21,16 @@ vim.opt.signcolumn = 'yes'
 vim.opt.timeoutlen = 300
 vim.opt.pumheight = 10
 vim.opt.ignorecase = true
+vim.opt.grepformat = '%f:%l:%c:%m'
+vim.opt.grepprg = 'rg --vimgrep'
+vim.opt.pumblend = 10
+vim.opt.pumheight = 10
+vim.opt.showmode = false
+vim.opt.ruler = false
+vim.opt.splitbelow = true -- Put new windows below current
+vim.opt.splitkeep = 'screen'
+vim.opt.splitright = true -- Put new windows right of current
+vim.opt.wildmode = 'longest:full,full'
 vim.opt.smartcase = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
@@ -45,16 +54,19 @@ vim.opt.undofile = true
 vim.opt.undolevels = 10000
 vim.g.netrw_banner = 0
 vim.opt.fillchars = {
+  foldopen = '',
+  foldclose = '',
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
   eob = ' ',
-  foldopen = '▾',
-  foldclose = '▸',
 }
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 5
 vim.opt.redrawtime = 100
 vim.opt.history = 200
 vim.diagnostic.config {
-  virtual_lines = true,
+  virtual_lines = { current_line = true },
   underline = false,
   signs = {
     text = {
