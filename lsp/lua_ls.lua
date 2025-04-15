@@ -1,7 +1,12 @@
-vim.lsp.config{
-    cmd = { "lua-language-server" },
-    root_markers = { ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git" },
-    filetypes = { "lua" },
-    on_init = require("util").lua_ls_on_init,
+return {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.luarc.json', '.luarc.jsonc' },
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      }
+    }
+  }
 }
-vim.lsp.enable("lua_ls")
