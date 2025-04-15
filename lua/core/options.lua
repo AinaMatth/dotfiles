@@ -6,11 +6,6 @@ vim.g.deprecation_warnings = false
 vim.o.termguicolors = true
 vim.o.completeopt = 'menu,menuone,popup,fuzzy'
 
-vim.g.loaded_node_provider = 0
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
-
 vim.schedule(function()
   vim.opt.clipboard:append 'unnamedplus'
 end)
