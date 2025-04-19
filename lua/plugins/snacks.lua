@@ -1,6 +1,12 @@
 return {
   'folke/snacks.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'folke/todo-comments.nvim',
+    config = function()
+      require('todo-comments').setup {}
+    end,
+  },
   priority = 1000,
   lazy = false,
   ---@type snacks.Config
@@ -16,7 +22,9 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = { enabled = true, sources = {
+      todo_comments = { hidden = true },
+    } },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
@@ -152,6 +160,7 @@ return {
       end,
       desc = 'Git Status',
     },
+    --TODO:
     {
       '<leader>gS',
       function()
@@ -232,6 +241,7 @@ return {
       end,
       desc = 'Buffer Lines',
     },
+    --HACK:
     {
       '<leader>sc',
       function()
@@ -343,6 +353,20 @@ return {
         Snacks.picker.undo()
       end,
       desc = 'Undo History',
+    },
+    {
+      '<leader>st',
+      function()
+        Snacks.picker.todo_comments { keywords = { 'TODO', 'HACK', 'WARNING', 'BUG', 'NOTE', 'INFO', 'PERF', 'ERROR' } }
+      end,
+      desc = 'Todo Comment Tags',
+    },
+    {
+      '<leader>sT',
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      desc = 'Todo',
     },
     {
       '<leader>uC',
