@@ -6,7 +6,11 @@ return {
     Lua = {
       runtime = {
         version = 'LuaJIT',
-      }
-    }
-  }
+      },
+      diagnostics = {
+        globals = { 'vim' },
+        disable = { 'missings-fields' },
+      },
+    },
+  },
 }
