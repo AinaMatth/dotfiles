@@ -21,6 +21,14 @@ return {
     scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
+    terminal = {
+      win = {
+        position = 'float',
+        border = 'rounded',
+        title = '   Terminal',
+        title_pos = 'center',
+      },
+    },
     words = { enabled = false },
     styles = {
       notification = {
@@ -476,7 +484,7 @@ return {
     {
       '<c-/>',
       function()
-        Snacks.terminal()
+        Snacks.terminal(nil, opts)
       end,
       desc = 'Toggle Terminal',
     },
