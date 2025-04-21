@@ -22,10 +22,16 @@ vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
     end
   end,
 })
-vim.api.nvim_create_user_command('VT', function()
-  vim.cmd ':vsp term://bash'
-  vim.cmd 'startinsert'
-end, {})
+
+vim.api.nvim_create_autocmd('Filetype', {
+  group = vim.api.nvim_create_augroup('border-dashboard', { clear = true }),
+  pattern = {
+    'snacks_dashboard',
+  },
+  callback = function()
+    vim.o.winborder = 'none'
+  end,
+})
 
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd('FileType', {
