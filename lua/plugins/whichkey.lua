@@ -12,7 +12,7 @@ return {
         { '<leader>dp', group = 'profiler' },
         { '<leader>f', group = 'file/find' },
         { '<leader>g', group = 'git', icon = { icon = '󰊢', color = 'red' } },
-        { '<leader>gh', group = 'hunks' },
+        { '<leader>h', group = 'hunks', icon = { icon = '', color = 'grey' } },
         { '<leader>s', group = 'search' },
         { '<leader>u', group = 'ui', icon = { icon = '󰙵 ', color = 'cyan' } },
         { '<leader>x', group = 'diagnostics/quickfix', icon = { icon = '󱖫 ', color = 'green' } },
