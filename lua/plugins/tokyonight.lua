@@ -4,7 +4,9 @@ return {
   config = function()
     ---@diagnostic disable-next-line: missing-fields
     require('tokyonight').setup {
-      styles = { comments = { italic = false } },
+      transparent = true,
+      styles = { comments = { italic = false }, sidebars = 'transparent', floats = 'transparent' },
+      lualine_bold = true,
     }
     vim.cmd.colorscheme 'tokyonight'
   end,
