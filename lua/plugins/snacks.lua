@@ -22,9 +22,6 @@ return {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true, sources = {
-      todo_comments = { hidden = true },
-    } },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
@@ -160,7 +157,6 @@ return {
       end,
       desc = 'Git Status',
     },
-    --TODO:
     {
       '<leader>gS',
       function()
@@ -353,20 +349,6 @@ return {
         Snacks.picker.undo()
       end,
       desc = 'Undo History',
-    },
-    {
-      '<leader>st',
-      function()
-        Snacks.picker.todo_comments { keywords = { 'TODO', 'HACK', 'WARNING', 'BUG', 'NOTE', 'INFO', 'PERF', 'ERROR' } }
-      end,
-      desc = 'Todo Comment Tags',
-    },
-    {
-      '<leader>sT',
-      function()
-        Snacks.picker.todo_comments()
-      end,
-      desc = 'Todo',
     },
     {
       '<leader>uC',
