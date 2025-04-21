@@ -34,9 +34,6 @@ return {
       nerd_font_variant = 'normal',
     },
     completion = {
-      menu = {
-        border = 'single',
-      },
       ghost_text = {
         enabled = true,
       },
