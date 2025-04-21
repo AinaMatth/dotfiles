@@ -62,6 +62,8 @@ require('lazy').setup {
     },
   },
   ui = {
+    border = 'rounded',
+    title = '󰒲 Lazy',
     icons = {
       cmd = '  ', ---+ ${ui, Lazy.nvim UI icons}
 
