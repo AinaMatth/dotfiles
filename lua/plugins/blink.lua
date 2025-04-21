@@ -33,7 +33,22 @@ return {
     appearance = {
       nerd_font_variant = 'normal',
     },
-    completion = { documentation = { auto_show = true, auto_show_delay_ms = 500 } },
+    completion = {
+      menu = {
+        border = 'single',
+      },
+      ghost_text = {
+        enabled = true,
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 500,
+        window = {
+          border = 'single',
+          desired_min_width = 30,
+        },
+      },
+    },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'lazydev' },
       providers = {
