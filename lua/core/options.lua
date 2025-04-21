@@ -1,15 +1,23 @@
+--[[Global options]]
+--
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.snacks_animate = true
 vim.g.have_nerd_font = true
 vim.g.deprecation_warnings = false
+vim.g.trouble_lualine = true
+
+--[[Options]]
+--
 vim.o.termguicolors = true
 vim.o.completeopt = 'menu,menuone,popup,fuzzy'
+vim.o.winborder = 'single'
 
 vim.schedule(function()
   vim.opt.clipboard:append 'unnamedplus'
 end)
 
+vim.opt.virtualedit = 'block'
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.signcolumn = 'yes'
