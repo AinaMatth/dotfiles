@@ -23,16 +23,6 @@ vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
   end,
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
-  group = vim.api.nvim_create_augroup('border-dashboard', { clear = true }),
-  pattern = {
-    'snacks_dashboard',
-  },
-  callback = function()
-    vim.o.winborder = 'none'
-  end,
-})
-
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('kickstart-close-files', { clear = true }),
