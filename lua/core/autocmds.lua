@@ -83,3 +83,10 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
   end,
 })
+
+-- Refresh statusline after any colorscheme change
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    vim.o.statusline = "%!v:lua.require'core.statusline'.statusline()"
+  end,
+})
