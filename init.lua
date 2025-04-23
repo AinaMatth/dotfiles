@@ -1,5 +1,7 @@
+vim.loader.enable()
 require 'core.options'
 require 'core.keymaps'
 require 'core.autocmds'
 require 'core.lazy'
-vim.lsp.enable { 'basedpyright', 'lua_ls', 'clangd' }
+require 'core.statusline'
+vim.lsp.enable { 'sqlls', 'html', 'ruff', 'ts_ls', 'pylsp', 'lua_ls', 'clangd', 'rust_analyzer' }
