@@ -22,6 +22,7 @@ return {
       ensure_installed = {
         'bash',
         'c',
+        'cpp',
         'diff',
         'html',
         'javascript',
@@ -51,7 +52,7 @@ return {
         use_languagetree = true,
         indent = { enable = true },
         highlight = { enable = true },
-
+        incremental_selection = { enable = true },
         additional_vim_regex_highlighting = false,
 
         -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
