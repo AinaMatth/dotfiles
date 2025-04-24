@@ -66,6 +66,7 @@ vim.opt.fillchars = {
 }
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 5
+vim.opt.laststatus = 3
 vim.opt.redrawtime = 100
 vim.opt.history = 200
 vim.diagnostic.config {
