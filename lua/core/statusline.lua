@@ -16,20 +16,30 @@ end
 -- Force non-italic base highlights
 hl(0, 'StatusLine', { italic = false })
 hl(0, 'StatusLineNC', { italic = false })
+hl(0, 'StlDiagError', { fg = '#FF5555', italic = false })
+hl(0, 'StlDiagWarn', { fg = '#F1FA8C', italic = false })
+hl(0, 'StlGitAdd', { fg = '#50fa7b', italic = false })
+hl(0, 'StlGitChange', { fg = '#f1fa8c', italic = false })
+hl(0, 'StlGitRemove', { fg = '#ff5555', italic = false })
 copy_and_clean_hl('Type', 'StlGit')
 copy_and_clean_hl('Keyword', 'StlFile')
 copy_and_clean_hl('DiagnosticWarn', 'StlDiag')
+copy_and_clean_hl('GitSignsAdd', 'StlGitAdd')
+copy_and_clean_hl('GitSignsChange', 'StlGitChange')
+copy_and_clean_hl('GitSignsDelete', 'StlGitRemove')
+copy_and_clean_hl('DiagnosticError', 'StlDiagError')
+copy_and_clean_hl('DiagnosticWarn', 'StlDiagWarn')
 
 -- Dynamic mode highlights
 local mode_hl_map = {
-  n = { group = 'StlMode', link = 'Normal' },
-  i = { group = 'StlMode', link = 'Insert' },
-  v = { group = 'StlMode', link = 'Visual' },
-  V = { group = 'StlMode', link = 'Visual' },
-  ['\22'] = { group = 'StlMode', link = 'Visual' },
-  c = { group = 'StlMode', link = 'Command' },
-  R = { group = 'StlMode', link = 'Replace' },
-  t = { group = 'StlMode', link = 'Terminal' },
+  n = { group = 'StlMode', link = 'Constant' },
+  i = { group = 'StlMode', link = 'String' },
+  v = { group = 'StlMode', link = 'Function' },
+  V = { group = 'StlMode', link = 'Function' },
+  ['\22'] = { group = 'StlMode', link = 'Function' },
+  c = { group = 'StlMode', link = 'Identifier' },
+  R = { group = 'StlMode', link = 'Statement' },
+  t = { group = 'StlMode', link = 'PreProc' },
 }
 
 -- Use fg color instead of bg for transparent schemes
@@ -39,9 +49,9 @@ local function set_mode_color()
   if def then
     local ok, hl_def = pcall(get_hl, 0, { name = def.link, link = true })
     if ok and hl_def and hl_def.fg then
-      hl(0, def.group, { fg = hl_def.fg, italic = false })
+      hl(0, def.group, { fg = hl_def.fg, bold = true, italic = false })
+      return '%#' .. def.group .. '#'
     end
-    return '%#' .. def.group .. '#'
   end
   return '%#StatusLine#'
 end
@@ -68,10 +78,10 @@ local function git()
     return ''
   end
   local parts = {
-    g.head and ' ' .. g.head or nil,
-    g.added and g.added > 0 and ' ' .. g.added or nil,
-    g.changed and g.changed > 0 and ' ' .. g.changed or nil,
-    g.removed and g.removed > 0 and ' ' .. g.removed or nil,
+    g.head and '%#StlGit#  ' .. g.head or nil,
+    g.added and g.added > 0 and '%#StlGitAdd#  ' .. g.added or nil,
+    g.changed and g.changed > 0 and '%#StlGitChange#  ' .. g.changed or nil,
+    g.removed and g.removed > 0 and '%#StlGitRemove# ' .. g.removed or nil,
   }
   return table.concat(
     vim.tbl_filter(function(v)
@@ -102,8 +112,8 @@ local function diagnostics()
     return #vim.diagnostic.get(0, { severity = severity })
   end
   local parts = {
-    count(vim.diagnostic.severity.ERROR) > 0 and (' ' .. count(vim.diagnostic.severity.ERROR)) or nil,
-    count(vim.diagnostic.severity.WARN) > 0 and (' ' .. count(vim.diagnostic.severity.WARN)) or nil,
+    count(vim.diagnostic.severity.ERROR) > 0 and ('%#StlDiagError# ' .. count(vim.diagnostic.severity.ERROR)) or nil,
+    count(vim.diagnostic.severity.WARN) > 0 and ('%#StlDiagWarn# ' .. count(vim.diagnostic.severity.WARN)) or nil,
   }
   return table.concat(
     vim.tbl_filter(function(v)
@@ -115,7 +125,7 @@ end
 
 -- ── LSP Clients ─────────────────────────────────────────────────────────────
 local function lsp_clients()
-  local clients = vim.lsp.get_active_clients { bufnr = 0 }
+  local clients = vim.lsp.get_clients { bufnr = 0 }
   if #clients == 0 then
     return ''
   end
