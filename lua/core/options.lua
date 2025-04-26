@@ -22,7 +22,6 @@ vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.signcolumn = 'yes'
 vim.opt.timeoutlen = 300
-vim.opt.pumheight = 10
 vim.opt.ignorecase = true
 vim.opt.grepformat = '%f:%l:%c:%m'
 vim.opt.grepprg = 'rg --vimgrep'
@@ -35,8 +34,6 @@ vim.opt.splitkeep = 'screen'
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.wildmode = 'longest:full,full'
 vim.opt.smartcase = true
-vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 10
 vim.opt.list = true
 vim.opt.listchars = {
   tab = '▶ ',
@@ -44,7 +41,6 @@ vim.opt.listchars = {
   extends = '»',
   precedes = '«',
 }
-vim.opt.diffopt:append 'linematch:60'
 vim.opt.confirm = true
 vim.opt.updatetime = 200
 vim.opt.smartindent = true
