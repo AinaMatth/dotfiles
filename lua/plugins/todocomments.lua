@@ -9,14 +9,14 @@ return {
   },
   keys = {
     {
-      '<leader>st',
+      '<leader>ft',
       function()
         Snacks.picker.todo_comments { keywords = { 'TODO', 'HACK', 'WARNING', 'BUG', 'NOTE', 'INFO', 'PERF', 'ERROR' } }
       end,
       desc = 'Todo Comment Tags',
     },
     {
-      '<leader>sT',
+      '<leader>fT',
       function()
         Snacks.picker.todo_comments()
       end,
