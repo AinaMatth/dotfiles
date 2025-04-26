@@ -24,7 +24,16 @@ return {
       },
       opts = {},
     },
-    'folke/lazydev.nvim',
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = {
+        library = {
+          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+          { path = 'snacks.nvim', words = { 'Snacks' } },
+        },
+      },
+    },
   },
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -39,7 +48,7 @@ return {
       },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 200,
+        auto_show_delay_ms = 300,
       },
     },
     sources = {
@@ -48,8 +57,8 @@ return {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
       },
     },
+    snippets = { preset = 'luasnip' },
     signature = { enabled = true },
     fuzzy = { implementation = 'prefer_rust_with_warning' },
   },
-  opts_extend = { 'sources.default' },
 }
