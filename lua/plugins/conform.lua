@@ -11,6 +11,7 @@ return {
       sql = { 'sqruff', stop_after_first = true },
       -- rust = { "rustfmt", lsp_format = "fallback" },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      html = { 'prettierd', 'prettier', stop_after_first = true },
       c = { 'clang-format' },
     },
     default_format_opts = {
