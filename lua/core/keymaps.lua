@@ -9,6 +9,3 @@ vim.keymap.set('n', '<C-Up>', ':resize +2<CR>', { noremap = true, silent = true 
 vim.keymap.set('n', '<C-Down>', ':resize -2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
--- Keymaps for starting and stopping the live server
-vim.keymap.set('n', '<leader>ls', ':StartLiveServer<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>lq', ':StopLiveServer<CR>', { noremap = true, silent = true })
