@@ -38,6 +38,8 @@ return {
         'python',
         'query',
         'regex',
+        'r',
+        'css',
         'toml',
         'tsx',
         'typescript',
