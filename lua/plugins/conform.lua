@@ -13,6 +13,9 @@ return {
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       html = { 'prettierd', 'prettier', stop_after_first = true },
       c = { 'clang-format' },
+      quarto = { 'injected' },
+      rmd = { 'injected' },
+      r = { 'air' },
     },
     default_format_opts = {
       lsp_format = 'fallback',
