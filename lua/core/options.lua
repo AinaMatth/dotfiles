@@ -11,7 +11,6 @@ vim.g.trouble_lualine = true
 --
 vim.o.termguicolors = true
 vim.o.completeopt = 'menu,menuone,popup,fuzzy'
-vim.o.winborder = 'single'
 
 vim.schedule(function()
   vim.opt.clipboard:append 'unnamedplus'
