@@ -1,21 +1,22 @@
 return {
-  'folke/tokyonight.nvim',
+  'catppuccin/nvim',
+  name = 'catppuccin',
   priority = 1000,
   config = function()
-    ---@diagnostic disable-next-line: missing-fields
-    require('tokyonight').setup {
-      style = 'storm',
-      transparent = true,
+    require('catppuccin').setup {
       styles = {
-        comments = { italic = false },
-        sidebars = 'transparent',
-        floats = 'transparent',
+        comments = {},
       },
-      on_highlights = function(highlights, colors)
-        -- Colors for Snacks pickers
-        highlights.SnacksPickerBoxTitle = { bg = '#1c99f2', fg = '#ffffff', bold = true }
-      end,
+      integrations = {
+        blink_cmp = true,
+        gitsigns = true,
+        mason = true,
+        treesitter = true,
+        snacks = true,
+        lsp_trouble = true,
+        which_key = true,
+      },
     }
-    vim.cmd.colorscheme 'tokyonight'
+    vim.cmd.colorscheme 'catppuccin'
   end,
 }
