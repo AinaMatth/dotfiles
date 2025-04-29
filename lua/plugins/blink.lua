@@ -34,6 +34,7 @@ return {
         },
       },
     },
+    { 'fang2hou/blink-copilot' },
   },
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -48,13 +49,19 @@ return {
       },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 300,
+        auto_show_delay_ms = 100,
       },
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'lazydev' },
+      default = { 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+        copilot = {
+          name = 'copilot',
+          module = 'blink-copilot',
+          score_offset = 100,
+          async = true,
+        },
       },
     },
     snippets = { preset = 'luasnip' },
