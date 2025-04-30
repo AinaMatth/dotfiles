@@ -1,10 +1,35 @@
+-- ============================================================================
+-- Neovim Initialization
+-- ============================================================================
+
+-- Enable Lua module caching for improved startup time (requires Neovim 0.9+)
 vim.loader.enable()
-require 'core.options'
-require 'core.keymaps'
-require 'core.autocmds'
-require 'core.lazy'
-require 'core.statusline'
-require('core.runner').setup {}
+
+-- ============================================================================
+-- Core Configuration Modules
+-- ============================================================================
+
+require 'core.options' -- General settings and vim.opt configuration
+require 'core.keymaps' -- Custom key mappings
+require 'core.autocmds' -- Autocommands
+require 'core.lazy' -- Plugin manager setup (Lazy.nvim)
+require 'core.statusline' -- Custom statusline module
+
+-- ============================================================================
+-- Optional / Extended Modules
+-- ============================================================================
+
+-- Setup code runner if available
+local ok, runner = pcall(require, 'core.runner')
+if ok and runner.setup then
+  runner.setup {}
+end
+
+-- ============================================================================
+-- LSP Configuration
+-- ============================================================================
+
+-- Custom abstraction to enable selected language servers
 vim.lsp.enable {
   'sqlls',
   'html',
