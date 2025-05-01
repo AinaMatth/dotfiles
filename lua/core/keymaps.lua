@@ -49,3 +49,4 @@ keymap('n', 'gr', vim.lsp.buf.references, { desc = 'References' })
 keymap('n', 'ge', vim.diagnostic.open_float, { desc = 'Show diagnostics (float)' })
 keymap('n', 'g]', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
 keymap('n', 'g[', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
+

@@ -148,12 +148,13 @@ end
 function M.statusline()
   return table.concat {
     set_mode_color(),
-    ' ',
+    ' ',
     mode_text(),
     ' ',
     '%#StlGit#',
     git(),
     ' ',
+    '%=',
     '%#StlFile#',
     file(),
     ' [',

@@ -1,5 +1,11 @@
 return {
   {
+    'saghen/blink.compat',
+    version = '*',
+    lazy = true,
+    opts = {},
+  },
+  {
     'saghen/blink.cmp',
     event = { 'InsertEnter', 'CmdlineEnter' },
     version = '1.*',
@@ -36,6 +42,7 @@ return {
         },
       },
       { 'fang2hou/blink-copilot' },
+      { 'R-nvim/cmp-r' },
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -45,18 +52,27 @@ return {
         nerd_font_variant = 'normal',
       },
       completion = {
+        menu = {
+          border = 'rounded',
+          scrollbar = false,
+        },
         ghost_text = {
           enabled = true,
         },
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 100,
+          window = { border = 'rounded' },
         },
       },
       sources = {
-        default = { 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'cmp_r', 'copilot' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          cmp_r = {
+            name = 'cmp_r',
+            module = 'blink.compat.source',
+          },
           copilot = {
             name = 'copilot',
             module = 'blink-copilot',
@@ -66,7 +82,7 @@ return {
         },
       },
       snippets = { preset = 'luasnip' },
-      signature = { enabled = true },
+      signature = { enabled = true, window = { border = 'rounded' } },
       fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
   },
