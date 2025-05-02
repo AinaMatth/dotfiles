@@ -66,8 +66,19 @@ function M.build_and_run()
     return
   end
 
-  local build_cmd = lang.build_cmd(fullpath, dir, name)
-  M._execute_build_and_run(build_cmd, lang.run_cmd, dir, name, start_time)
+  if lang.build_cmd and lang.run_cmd then
+    -- Handle compiled languages
+    local build_cmd = lang.build_cmd(fullpath, dir, name)
+    M._execute_build_and_run(build_cmd, lang.run_cmd, dir, name, start_time)
+  elseif lang.cmd then
+    -- Handle interpreted languages
+    local cmd = lang.cmd:gsub('%%', fullpath)
+    M._open_term_and_execute(cmd)
+    local elapsed = (vim.loop.hrtime() - start_time) / 1e6
+    vim.notify(string.format('Finished in %.2f ms', elapsed))
+  else
+    vim.notify('No valid runner configuration for ' .. ft, vim.log.levels.ERROR)
+  end
 end
 
 -- Execute build and run commands
