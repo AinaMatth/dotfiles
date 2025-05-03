@@ -1,5 +1,6 @@
 return {
   'stevearc/conform.nvim',
+  dependencies = { 'mason.nvim' },
   cmd = { 'ConformInfo', 'ConformFormat', 'ConformFormat', 'ConformToggleFormatGlobal' },
   event = 'BufWritePre',
   ---@module "conform"
@@ -18,6 +19,9 @@ return {
       r = { 'air' },
     },
     default_format_opts = {
+      timeout_ms = 3000,
+      async = false,
+      quiet = false,
       lsp_format = 'fallback',
     },
     format_on_save = {
