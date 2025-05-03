@@ -16,16 +16,6 @@ require 'core.lazy' -- Plugin manager setup (Lazy.nvim)
 require 'core.statusline' -- Custom statusline module
 
 -- ============================================================================
--- Optional / Extended Modules
--- ============================================================================
-
--- Setup code runner if available
-local ok, runner = pcall(require, 'core.runner')
-if ok and runner.setup then
-  runner.setup {}
-end
-
--- ============================================================================
 -- LSP Configuration
 -- ============================================================================
 

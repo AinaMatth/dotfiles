@@ -7,6 +7,7 @@ return {
       styles = {
         comments = {},
       },
+      compile_path = vim.fn.stdpath 'cache' .. '/catppuccin',
       integrations = {
         blink_cmp = true,
         gitsigns = true,
