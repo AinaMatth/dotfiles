@@ -1,8 +1,9 @@
+vim.api.nvim_set_hl(0, 'YankHighlight', { bg = '#a6e3a1', fg = '#1e1e2e' })
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank { higroup = 'YankHighlight', timeout = 200 }
   end,
 })
 -- show cursor line only in active window
@@ -103,4 +104,3 @@ vim.api.nvim_create_autocmd('User', {
     vim.b.copilot_suggestion_hidden = false
   end,
 })
-
