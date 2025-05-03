@@ -7,6 +7,9 @@ local opts = { noremap = true, silent = true }
 
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight' })
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+keymap('n', 'w', ':w', { desc = 'Saeve file' })
+keymap('n', 'q', ':q', { desc = 'Quit file' })
+keymap('n', 'vs', ':vs', { desc = 'Vertical split' })
 
 -- ============================================================================
 -- Window Navigation
@@ -41,12 +44,3 @@ keymap('n', 'gt', vim.lsp.buf.type_definition, { desc = 'Type Definition' })
 keymap('n', 'gn', vim.lsp.buf.rename, { desc = 'Rename Symbol' })
 keymap('n', 'ga', vim.lsp.buf.code_action, { desc = 'Code Action' })
 keymap('n', 'gr', vim.lsp.buf.references, { desc = 'References' })
-
--- ============================================================================
--- Diagnostics
--- ============================================================================
-
-keymap('n', 'ge', vim.diagnostic.open_float, { desc = 'Show diagnostics (float)' })
-keymap('n', 'g]', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
-keymap('n', 'g[', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
-
