@@ -1,4 +1,4 @@
-vim.api.nvim_set_hl(0, 'YankHighlight', { bg = '#a6e3a1', fg = '#1e1e2e' })
+vim.api.nvim_set_hl(0, 'YankHighlight', { bg = '#a6e3a1', fg = '#0e1e2e' })
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -58,20 +58,6 @@ vim.api.nvim_create_autocmd('FileType', {
     end)
   end,
 })
--- vim.api.nvim_create_autocmd('LspProgress', {
---   ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
---   callback = function(ev)
---     local spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' }
---     vim.notify(vim.lsp.status(), 'info', {
---       id = 'lsp_progress',
---       title = 'LSP Progress',
---       opts = function(notif)
---         notif.icon = ev.data.params.value.kind == 'end' and ' '
---           or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
---       end,
---     })
---   end,
--- })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {

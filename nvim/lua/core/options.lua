@@ -1,25 +1,24 @@
 -- ============================================================================
 -- Neovim Global Variables and Options Setup
 -- ============================================================================
+local opt = vim.opt
+local g = vim.g
+local o = vim.o
 
 -- Leader keys
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+g.mapleader = ' '
+g.maplocalleader = ' '
 
 -- Global flags
-vim.g.snacks_animate = true
-vim.g.have_nerd_font = true
-vim.g.deprecation_warnings = false
-vim.g.trouble_lualine = true
-vim.g.netrw_banner = 0
+g.snacks_animate = true
+g.have_nerd_font = true
+g.deprecation_warnings = false
+g.trouble_lualine = true
+g.netrw_banner = 0
 
 -- ============================================================================
 -- Core Vim Options
 -- ============================================================================
-
-local opt = vim.opt
-local g = vim.g
-local o = vim.o
 
 -- UI / Interface
 o.termguicolors = true

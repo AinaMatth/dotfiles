@@ -13,11 +13,10 @@ return {
         gitsigns = true,
         mason = true,
         treesitter = true,
-        snacks = {
+        mini = {
           enabled = true,
           indent_scope_color = 'red', -- catppuccin color (eg. `lavender`) Default: text
         },
-        lsp_trouble = true,
         which_key = true,
         native_lsp = {
           enabled = true,
