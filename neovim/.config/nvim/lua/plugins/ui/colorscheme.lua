@@ -16,7 +16,7 @@ return {
         render_markdown = true,
         mini = {
           enabled = true,
-          indent_scope_color = 'lavender',
+          indent_scope_color = '',
         },
         which_key = true,
         native_lsp = {
