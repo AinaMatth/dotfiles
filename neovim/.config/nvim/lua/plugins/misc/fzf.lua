@@ -37,6 +37,14 @@ return {
       desc = 'Find Files in project directory',
     },
     {
+      '<leader>f/',
+      function()
+        require('fzf-lua').files { cwd = vim.env.HOME }
+      end,
+      desc = 'Find Files in home directory',
+    },
+
+    {
       '<leader>fg',
       function()
         require('fzf-lua').live_grep()
