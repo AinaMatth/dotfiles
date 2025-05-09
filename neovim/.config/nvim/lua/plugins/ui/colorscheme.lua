@@ -4,12 +4,18 @@ return {
   priority = 1000,
   config = function()
     require('catppuccin').setup {
+      flavour = 'mocha',
+      transparent_background = true,
       styles = {
         comments = {},
       },
       compile_path = vim.fn.stdpath 'cache' .. '/catppuccin',
       integrations = {
         blink_cmp = true,
+        fzf = true,
+        copilot_vim = true,
+        notify = true,
+
         gitsigns = true,
         mason = true,
         treesitter = true,
