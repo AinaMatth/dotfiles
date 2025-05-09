@@ -62,6 +62,7 @@ return {
     local servers = {
       clangd = {},
       ruff = {},
+      basedpyright = {},
       rust_analyzer = {},
       r_language_server = {},
       vtsls = {
