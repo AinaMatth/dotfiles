@@ -61,10 +61,19 @@ return {
     local capabilities = require('blink.cmp').get_lsp_capabilities()
     local servers = {
       clangd = {},
-      basedpyright = {},
+      ruff = {},
       rust_analyzer = {},
       r_language_server = {},
-      vtsls = {},
+      vtsls = {
+        filetypes = {
+          'javascript',
+          'javascriptreact',
+          'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.tsx',
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
