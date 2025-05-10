@@ -3,7 +3,6 @@ return {
     'echasnovski/mini.ai',
     event = 'VeryLazy',
     opts = function()
-      local ai = require 'mini.ai'
       return {
         n_lines = 500,
       }
@@ -27,10 +26,6 @@ return {
     },
   },
   {
-    'echasnovski/mini.statusline',
-    opts = {},
-  },
-  {
     'echasnovski/mini.files',
     opts = {
       windows = {
@@ -39,8 +34,6 @@ return {
         width_preview = 30,
       },
       options = {
-        -- Whether to use for editing directories
-        -- Disabled by default in LazyVim because neo-tree is used for that
         use_as_default_explorer = false,
       },
     },
@@ -136,7 +129,13 @@ return {
   },
   {
     'echasnovski/mini.icons',
-    opts = {},
+    opts = {
+      use_as_default = true,
+    },
+    config = function(_, opts)
+      require('mini.icons').setup(opts)
+      require('mini.icons').mock_nvim_web_devicons()
+    end,
   },
   {
     'echasnovski/mini.indentscope',
@@ -154,6 +153,7 @@ return {
           'lazy',
           'mason',
           'notify',
+          'alpha',
         },
         callback = function()
           vim.b.miniindentscope_disable = true
