@@ -2,6 +2,7 @@ return {
   'R-nvim/R.nvim',
   lazy = false,
   opts = {
+    R_app = 'radian',
     R_args = { '--quiet', '--no-save' },
     hook = {
       on_filetype = function()
