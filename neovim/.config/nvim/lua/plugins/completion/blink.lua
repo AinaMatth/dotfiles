@@ -42,7 +42,6 @@ return {
         },
       },
       { 'fang2hou/blink-copilot' },
-      { 'R-nvim/cmp-r' },
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -68,13 +67,9 @@ return {
         },
       },
       sources = {
-        default = { 'lazydev', 'lsp', 'path', 'snippets', 'cmp_r', 'copilot' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-          cmp_r = {
-            name = 'cmp_r',
-            module = 'blink.compat.source',
-          },
           copilot = {
             name = 'copilot',
             module = 'blink-copilot',
