@@ -9,9 +9,7 @@ vim.g.maplocalleader = ' '
 -- Global flags
 vim.g.have_nerd_font = true
 vim.g.deprecation_warnings = false
-vim.g.trouble_lualine = true
 vim.g.netrw_banner = 0
-
 -- ============================================================================
 -- Core Vim Options
 -- ============================================================================
