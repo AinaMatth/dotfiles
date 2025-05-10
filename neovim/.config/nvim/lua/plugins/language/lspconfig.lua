@@ -3,7 +3,7 @@ return {
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     {
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
       opts = {
         ui = {
           icons = {
@@ -15,7 +15,7 @@ return {
         max_concurrent_installers = 10,
       },
     },
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
     'saghen/blink.cmp',
