@@ -7,8 +7,8 @@ local opts = { noremap = true, silent = true }
 
 keymap('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlight' })
 keymap('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-keymap('n', 'w', ':w<CR>', { desc = 'Save file' })
-keymap('n', 'q', ':q<CR>', { desc = 'Quit file' })
+keymap('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
+keymap('n', '<leader>q', ':q<CR>', { desc = 'Quit file' })
 
 -- ============================================================================
 -- Window Navigation
