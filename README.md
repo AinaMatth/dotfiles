@@ -13,7 +13,7 @@ Welcome to my personal **dotfiles** repository! 🎉 This is where I keep my con
 ## 🗂️ What's Inside?
 
 - 🔮 **Neovim Configs (Lua)**: A supercharged setup for productivity. 🚀
--   **Tmux configuration**: Catppuccin theme all the way! ☕
+- 🏢 **Tmux configuration**: Catppuccin theme all the way! ☕
 ---
 
 ## 🚀 Quick Start
