@@ -82,5 +82,6 @@ return {
       signature = { enabled = true, window = { border = 'rounded' } },
       fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
+    opts_extend = { 'sources.default' },
   },
 }
