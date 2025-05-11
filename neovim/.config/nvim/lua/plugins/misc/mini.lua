@@ -138,6 +138,12 @@ return {
     end,
   },
   {
+    'echasnovski/mini.statusline',
+    config = function()
+      require('mini.statusline').setup()
+    end,
+  },
+  {
     'echasnovski/mini.indentscope',
     version = false,
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
