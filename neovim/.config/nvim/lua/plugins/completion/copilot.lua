@@ -67,7 +67,7 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
-    ft = { 'markdown', 'markdown.mdx', 'Avante', 'codecompanion' },
+    ft = { 'markdown', 'markdown.mdx', 'Avante', 'codecompanion', 'quarto' },
     opts = {
       file_types = { 'markdown', 'Avante', 'codecompanion' },
       completions = { blink = { enabled = true } },
