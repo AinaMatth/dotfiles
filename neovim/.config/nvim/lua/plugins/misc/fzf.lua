@@ -12,7 +12,7 @@ return {
     },
     previewers = {
       bat = {
-        theme = 'Coldark-Dark', -- or 'default'
+        theme = 'Coldark-Dark',
       },
     },
     fzf_opts = {
@@ -21,11 +21,11 @@ return {
     },
     files = {
       prompt = 'Files❯ ',
-      fd_opts = '--color=never --type f --hidden --follow --exclude .git',
+      fd_opts = '--color=never --type f --hidden --follow --exclude .git --strip-cwd-prefix',
     },
     grep = {
       prompt = 'Grep❯ ',
-      rg_opts = "--column --line-number --no-heading --color=always --smart-case --hidden -g '!{.git,node_modules}/*'",
+      rg_opts = "--column --line-number --no-heading --color=always --smart-case --hidden --trim --glob '!**/.git/*' --glob '!**/node_modules/*'",
     },
   },
   keys = {
