@@ -28,6 +28,10 @@ require('lazy').setup {
     lazy = false,
     version = false,
   },
+  install = {
+    missing = true,
+    colorscheme = { 'default' },
+  },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
