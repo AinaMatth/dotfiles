@@ -121,7 +121,6 @@ return {
         'prettier',
         'prettierd',
         'clang-format',
-        'air',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
