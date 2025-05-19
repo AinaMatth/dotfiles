@@ -12,9 +12,6 @@ return {
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettierd', 'prettier', stop_after_first = true },
         c = { 'clang-format' },
-        quarto = { 'injected' },
-        rmd = { 'injected' },
-        r = { 'air' },
       },
       default_format_opts = {
         timeout_ms = 3000,
@@ -25,17 +22,6 @@ return {
       format_on_save = {
         timeout_ms = 500,
         lsp_format = 'fallback',
-      },
-    }
-    require('conform').formatters.injected = {
-      options = {
-        ignore_errors = false,
-        lang_to_ext = {
-          markdown = 'md',
-          python = 'py',
-          r = 'r',
-        },
-        lang_to_formatters = {},
       },
     }
   end,
