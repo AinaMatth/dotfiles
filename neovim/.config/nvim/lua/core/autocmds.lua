@@ -29,9 +29,9 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'PlenaryTestPopup',
     'checkhealth',
+    'oil',
     'dbout',
     'gitsigns-blame',
-    'grug-far',
     'help',
     'lspinfo',
     'notify',
