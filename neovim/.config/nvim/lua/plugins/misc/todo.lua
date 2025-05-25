@@ -10,14 +10,14 @@ return {
   },
   keys = {
     {
-      '<leader>st',
+      '<leader>ft',
       function()
         require('todo-comments.fzf').todo()
       end,
       desc = 'Todo',
     },
     {
-      '<leader>sT',
+      '<leader>fT',
       function()
         require('todo-comments.fzf').todo { keywords = { 'TODO', 'FIX', 'FIXME' } }
       end,

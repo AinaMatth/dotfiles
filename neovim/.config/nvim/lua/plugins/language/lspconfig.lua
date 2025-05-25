@@ -1,7 +1,7 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     dependencies = {
       {
         'mason-org/mason.nvim',
@@ -108,7 +108,20 @@ return {
               completion = {
                 callSnippet = 'Replace',
               },
-              diagnostics = { disable = { 'missing-fields' } },
+              format = { enable = false },
+              runtime = {
+                version = 'LuaJIT',
+              },
+              diagnostics = {
+                globals = { 'vim' },
+              },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file('', true),
+                checkThirdParty = false,
+              },
+              telemetry = {
+                enable = false,
+              },
             },
           },
         },

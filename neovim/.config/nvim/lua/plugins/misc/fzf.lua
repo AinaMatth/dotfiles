@@ -19,6 +19,7 @@ return {
       ['--layout'] = 'reverse',
       ['--info'] = 'inline',
     },
+    fzf_colors = true,
     files = {
       prompt = 'Files❯ ',
       fd_opts = '--color=never --type f --hidden --follow --exclude .git --strip-cwd-prefix',
