@@ -7,11 +7,12 @@ return {
     require('conform').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- sql = { 'sqruff', stop_after_first = true },
-        -- rust = { "rustfmt", lsp_format = "fallback" },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         html = { 'prettierd', 'prettier', stop_after_first = true },
         c = { 'clang-format' },
+        quarto = { 'injected' },
+        markdown = { 'injected' },
+        r = { 'air' },
       },
       default_format_opts = {
         timeout_ms = 3000,
@@ -24,8 +25,26 @@ return {
         lsp_format = 'fallback',
       },
     }
-  end,
-  init = function()
-    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    require('conform').formatters.injected = {
+      options = {
+        ignore_errors = false,
+        lang_to_ext = {
+          bash = 'sh',
+          c_sharp = 'cs',
+          elixir = 'exs',
+          javascript = 'js',
+          julia = 'jl',
+          latex = 'tex',
+          markdown = 'md',
+          python = 'py',
+          ruby = 'rb',
+          rust = 'rs',
+          teal = 'tl',
+          r = 'r',
+          typescript = 'ts',
+        },
+        lang_to_formatters = {},
+      },
+    }
   end,
 }
