@@ -219,9 +219,11 @@ vim.api.nvim_create_autocmd('WinLeave', {
     vim.o.statusline = '%f'
   end,
 })
-
-vim.filetype.add {
-  extension = {
-    qmd = 'quarto',
-  },
-}
+vim.api.nvim_create_autocmd('ColorScheme', {
+  pattern = '*',
+  callback = function()
+    vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE', fg = '#c8c093' })
+    vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE', fg = '#727169' })
+    vim.api.nvim_set_hl(0, 'VertSplit', { bg = 'NONE', fg = '#2a2a37' })
+  end,
+})
