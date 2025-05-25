@@ -1,5 +1,14 @@
 return {
   {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
+  {
     'saghen/blink.cmp',
     event = 'InsertEnter',
     version = '*',
@@ -32,8 +41,13 @@ return {
         },
       },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'copilot' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
         providers = {
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            score_offset = 100,
+          },
           copilot = {
             name = 'copilot',
             module = 'blink-copilot',
