@@ -1,5 +1,23 @@
 return {
   {
+    'jmbuhr/otter.nvim',
+    dev = false,
+    dependencies = {
+      {
+        'neovim/nvim-lspconfig',
+        'nvim-treesitter/nvim-treesitter',
+      },
+    },
+    config = function()
+      local otter = require 'otter'
+      otter.setup {
+        buffers = {
+          write_to_disk = true,
+        },
+      }
+    end,
+  },
+  {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     dependencies = {
@@ -57,10 +75,14 @@ return {
           },
         },
       }
-
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local lsp_flags = {
+        allow_incremental_sync = true,
+        debounce_text_changes = 150,
+      }
+      local capabilities = require('blink.cmp').get_lsp_capabilities({}, true)
       local servers = {
         air = {
+          flags = lsp_flags,
           capabilities = capabilities,
           on_attach = function(_, bufnr)
             vim.api.nvim_create_autocmd('BufWritePre', {
@@ -72,12 +94,23 @@ return {
           end,
         },
         clangd = {
+          flags = lsp_flags,
           capabilities = capabilities,
         },
-        ruff = {},
-        basedpyright = {},
-        rust_analyzer = {},
+        ruff = {
+          lsp_flags = lsp_flags,
+          capabilities = capabilities,
+        },
+        basedpyright = {
+          lsp_flags = lsp_flags,
+          capabilities = capabilities,
+        },
+        rust_analyzer = {
+          lsp_flags = lsp_flags,
+          capabilities = capabilities,
+        },
         r_language_server = {
+          lsp_flags = lsp_flags,
           capabilities = capabilities,
           filetypes = { 'r', 'rmd', 'rmarkdown' },
           settings = {
@@ -93,6 +126,8 @@ return {
           end,
         },
         vtsls = {
+          flags = lsp_flags,
+          capabilities = capabilities,
           filetypes = {
             'javascript',
             'javascriptreact',
@@ -103,6 +138,8 @@ return {
           },
         },
         lua_ls = {
+          lsp_flags = lsp_flags,
+          capabilities = capabilities,
           settings = {
             Lua = {
               completion = {
@@ -113,6 +150,7 @@ return {
                 version = 'LuaJIT',
               },
               diagnostics = {
+                disable = { 'trailing-space' },
                 globals = { 'vim' },
               },
               workspace = {

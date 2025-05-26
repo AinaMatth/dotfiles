@@ -2,25 +2,12 @@ return {
   'quarto-dev/quarto-nvim',
   ft = { 'quarto' },
   dependencies = {
-    {
-      'jmbuhr/otter.nvim',
-      dependencies = {
-        { 'neovim/nvim-lspconfig' },
-      },
-      config = function()
-        local otter = require 'otter'
-        otter.setup {
-          buffers = {
-            write_to_disk = true,
-          },
-        }
-      end,
-    },
+    'jmbuhr/otter.nvim',
   },
   opts = {
     lspFeatures = {
       languages = { 'r', 'python', 'julia', 'bash', 'lua', 'html' },
-      chuncks = 'curly',
+      chunks = 'curly',
       diagnostics = {
         enabled = true,
         trigger = 'BufWritePost',
@@ -42,8 +29,5 @@ return {
     vim.keymap.set('n', '<localleader>qA', runner.run_all, { desc = 'run all cells' })
     vim.keymap.set('n', '<localleader>ql', runner.run_line, { desc = 'run line' })
     vim.keymap.set('v', '<localleader>qr', runner.run_range, { desc = 'run visual range' })
-    vim.keymap.set('n', '<localleader>qA', function()
-      runner.run_all(true)
-    end, { desc = 'run all cells of all languages' })
   end,
 }

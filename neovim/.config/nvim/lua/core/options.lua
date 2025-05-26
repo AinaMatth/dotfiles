@@ -21,6 +21,7 @@ local o = vim.o
 o.termguicolors = true
 opt.cursorline = true
 opt.number = true
+opt.relativenumber = true
 opt.signcolumn = 'yes'
 opt.statuscolumn = ''
 opt.laststatus = 3

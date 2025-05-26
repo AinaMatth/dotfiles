@@ -22,9 +22,10 @@ return {
     opts = {
       keymap = {
         preset = 'enter',
-        ['<c-y>'] = { 'show_documentation', 'hide_documentation' },
+        ['<c-y>'] = { 'select_and_accept' },
       },
       appearance = {
+        use_nvim_cmp_as_default = true,
         nerd_font_variant = 'normal',
       },
       completion = {
@@ -41,7 +42,7 @@ return {
         },
       },
       sources = {
-        default = { 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
         providers = {
           lazydev = {
             name = 'LazyDev',
@@ -57,6 +58,7 @@ return {
         },
       },
       fuzzy = { implementation = 'prefer_rust_with_warning' },
+      signature = { enabled = true },
       cmdline = {
         enabled = false,
       },

@@ -8,6 +8,11 @@ return {
       debounce = 75,
       ignore_default_suggestions = false,
       use_context = true,
+      keymap = {
+        accept = false,
+        next = '<M-]>',
+        prev = '<M-[>',
+      },
     },
     panel = { enabled = false },
     filetypes = {
