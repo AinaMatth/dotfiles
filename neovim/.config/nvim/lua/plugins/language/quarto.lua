@@ -2,7 +2,18 @@ return {
   'quarto-dev/quarto-nvim',
   ft = { 'quarto' },
   dependencies = {
-    'jmbuhr/otter.nvim',
+    {
+      'jmbuhr/otter.nvim',
+      dependencies = { 'neovim/nvim-lspconfig', 'nvim-treesitter/nvim-treesitter' },
+      config = function()
+        local otter = require 'otter'
+        otter.setup {
+          buffers = {
+            write_to_disk = true,
+          },
+        }
+      end,
+    },
   },
   opts = {
     lspFeatures = {
