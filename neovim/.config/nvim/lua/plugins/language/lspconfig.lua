@@ -1,23 +1,5 @@
 return {
   {
-    'jmbuhr/otter.nvim',
-    dev = false,
-    dependencies = {
-      {
-        'neovim/nvim-lspconfig',
-        'nvim-treesitter/nvim-treesitter',
-      },
-    },
-    config = function()
-      local otter = require 'otter'
-      otter.setup {
-        buffers = {
-          write_to_disk = true,
-        },
-      }
-    end,
-  },
-  {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     dependencies = {
@@ -46,12 +28,12 @@ return {
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
-          map('gd', require('fzf-lua').lsp_definitions, '[G]oto [D]efinition')
-          map('gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences')
-          map('gI', require('fzf-lua').lsp_implementations, '[G]oto [I]mplementation')
-          map('<leader>D', require('fzf-lua').lsp_typedefs, 'Type [D]efinition')
-          map('<leader>ds', require('fzf-lua').lsp_document_symbols, '[D]ocument [S]ymbols')
-          map('<leader>ws', require('fzf-lua').lsp_live_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -64,7 +46,7 @@ return {
       vim.diagnostic.config {
         severit_sort = true,
         virtual_lines = { current_line = true },
-        float = { border = 'rounded', source = 'if_many' },
+        float = { border = 'rounded' },
         underline = { severity = vim.diagnostic.severity.ERROR },
         signs = {
           text = {
