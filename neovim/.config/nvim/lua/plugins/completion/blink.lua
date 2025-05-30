@@ -56,11 +56,6 @@ return {
             treesitter = { 'lsp' },
           },
         },
-        ghost_text = {
-          enabled = true,
-          show_with_selection = true,
-          show_with_menu = true,
-        },
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 200,

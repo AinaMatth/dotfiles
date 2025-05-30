@@ -2,11 +2,12 @@ return {
   'stevearc/oil.nvim',
   ---@module 'oil'
   ---@type oil.SetupOpts
-  dependencies = { { 'echasnovski/mini.icons', opts = {} } },
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
   lazy = false,
   config = function()
     local detail = false
     require('oil').setup {
+      columns = { icons },
       keymaps = {
         ['gd'] = {
           desc = 'Toggle file detail view',
@@ -20,6 +21,7 @@ return {
           end,
         },
       },
+      view_options = { show_hidden = true },
     }
     vim.keymap.set('n', '-', '<cmd>Oil --float<cr>', { desc = 'Open Oil' })
   end,
