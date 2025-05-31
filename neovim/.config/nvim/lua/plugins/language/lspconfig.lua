@@ -28,12 +28,14 @@ return {
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('gd', '<cmd>FzfLua lsp_definitions     jump1=true ignore_current_line=true<cr>', '[G]oto [D]efinition')
+          map('gr', '<cmd>FzfLua lsp_references     jump1=true ignore_current_line=true<cr>', '[G]oto [R]eferences')
+          map(
+            'gI',
+            '<cmd>FzfLua lsp_implementations     jump1=true ignore_current_line=true<cr>',
+            '[G]oto [I]mplementation'
+          )
+          map('<leader>D', '<cmd>FzfLua lsp_typedefs     jump1=true ignore_current_line=true<cr>', 'Type [D]efinition')
           map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
