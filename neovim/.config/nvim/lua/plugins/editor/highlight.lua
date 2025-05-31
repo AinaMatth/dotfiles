@@ -1,4 +1,5 @@
 return {
-  'brenoprata10/nvim-highlight-colors',
+  'catgoose/nvim-colorizer.lua',
+  event = 'BufReadPre',
   opts = {},
 }
