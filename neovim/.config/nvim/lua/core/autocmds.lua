@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.hl.on_yank { higroup = 'IncSearch', timeout = 200 }
+    vim.hl.on_yank { higroup = 'CurSearch', timeout = 200 }
   end,
 })
 -- show cursor line only in active window
@@ -36,7 +36,6 @@ vim.api.nvim_create_autocmd('FileType', {
     'lspinfo',
     'notify',
     'qf',
-    'spectre_panel',
     'startuptime',
     'tsplayground',
   },
