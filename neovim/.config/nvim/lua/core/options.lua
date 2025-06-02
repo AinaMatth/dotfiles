@@ -28,18 +28,22 @@ opt.signcolumn = 'yes'
 opt.statuscolumn = ''
 opt.laststatus = 3
 opt.ruler = false
-opt.scrolloff = 8
+opt.scrolloff = 4
 opt.sidescrolloff = 5
 opt.redrawtime = 100
+opt.conceallevel = 2
+opt.shortmess:append { W = true, I = true, c = true, C = true }
 
 -- Completion and Popup
-o.completeopt = 'menu,menuone,popup,fuzzy'
+o.completeopt = 'menu,menuone,noselect'
 opt.pumblend = 10
 opt.pumheight = 10
 
 -- Search
 opt.ignorecase = true
 opt.smartcase = true
+opt.grepformat = '%f:%l:%c:%m'
+opt.grepprg = 'rg --vimgrep'
 
 -- Clipboard (use schedule to ensure GUI-safe)
 vim.schedule(function()
@@ -50,9 +54,10 @@ end)
 opt.smartindent = true
 opt.breakindent = true
 opt.shiftround = true
-opt.shiftwidth = 4
-opt.tabstop = 4
+opt.shiftwidth = 2
+opt.tabstop = 2
 opt.expandtab = true
+opt.linebreak = true
 
 -- Split behavior
 opt.splitbelow = true
@@ -78,8 +83,9 @@ opt.fillchars = {
 }
 
 -- Misc
-o.inccommand = 'split'
+o.inccommand = 'nosplit'
 opt.virtualedit = 'block'
+opt.jumpoptions = 'view'
 opt.timeoutlen = 300
 opt.confirm = true
 opt.updatetime = 200
