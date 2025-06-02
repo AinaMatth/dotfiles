@@ -1,10 +1,11 @@
+---@diagnostic disable: unused-local
 -- credit: @MariaSolOS https://github.com/MariaSolOs/dotfiles/blob/main/.config/nvim/lua/lsp.lua
 local methods = vim.lsp.protocol.Methods
 local M = {}
 vim.g.inlay_hints = true
 ---@param client vim.lsp.Client
 ---@param bufnr integer
---FIXME: this function is not used in the code, consider removing it or using it
+--HACK: this function is not used in the code, consider removing it or using it
 local function on_attach(client, bufnr)
   ---@param lhs string
   ---@param rhs string|function
