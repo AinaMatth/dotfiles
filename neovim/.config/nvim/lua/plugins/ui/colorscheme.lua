@@ -7,9 +7,6 @@ return {
       styles = {
         comments = {},
       },
-      color_overrides = {},
-      custom_highlights = {},
-      default_integrations = true,
     }
     vim.cmd 'colorscheme catppuccin'
   end,
