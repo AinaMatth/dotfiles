@@ -16,5 +16,8 @@ return {
     map('v', '<leader>ss', '<Plug>SlimeRegionSend', opts)
     map('v', '<leader>sc', '<Plug>SlimeSendCell', opts)
     map('v', '<leader>sm', '<Plug>SlimeMotionSend', opts)
+    map('n', '<leader>rl', '<cmd>SlimeSend1 ls()<CR>', opts)
+    map('n', '<leader>rq', '<cmd>SlimeSend1 q()<CR>', opts)
+    map('n', '<leader>rr', '<cmd>SlimeSend1 rm(list = ls())<CR>', opts)
   end,
 }
