@@ -30,6 +30,11 @@ keymap('o', 'n', "'Nn'[v:searchforward]", { expr = true, desc = 'Next Search Res
 keymap('n', 'N', "'nN'[v:searchforward].'zv'", { expr = true, desc = 'Prev Search Result' })
 keymap('x', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result' })
 keymap('o', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result' })
+-- Keeping the cursor centered.
+keymap('n', '<C-d>', '<C-d>zz', { desc = 'Scroll downwards' })
+keymap('n', '<C-u>', '<C-u>zz', { desc = 'Scroll upwards' })
+keymap('n', 'n', 'nzzzv', { desc = 'Next result' })
+keymap('n', 'N', 'Nzzzv', { desc = 'Previous result' })
 
 -- ============================================================================
 -- Window Resizing
