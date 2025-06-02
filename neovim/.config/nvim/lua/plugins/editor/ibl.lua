@@ -7,6 +7,8 @@ return {
   init = function()
     vim.api.nvim_create_autocmd('FileType', {
       pattern = {
+        'Trouble',
+        'trouble',
         'alpha',
         'fzf',
         'help',
