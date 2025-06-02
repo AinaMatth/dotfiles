@@ -12,6 +12,7 @@ return {
         { '<leader>', group = 'Leader', icon = { icon = '󰓎 ', color = 'yellow' } },
         { '<leader>c', group = 'code' },
         { '<leader>u', group = 'noice' },
+        { '<leader>r', group = 'r', icon = { icon = ' ', color = 'blue' } },
         { '<leader>x', group = 'diagnostics/quickfix', icon = { icon = '󱖫 ', color = 'green' } },
         { '<leader>s', group = 'fzf', icon = { icon = ' ', color = 'white' } },
         { '<leader>g', group = 'git hunk' },
