@@ -24,7 +24,6 @@ return {
         },
         opts = {},
       },
-      { 'fang2hou/blink-copilot' },
       {
         'saghen/blink.compat',
         opts = {},
@@ -64,18 +63,12 @@ return {
         },
       },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer', 'copilot' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'buffer' },
         providers = {
           lazydev = {
             name = 'LazyDev',
             module = 'lazydev.integrations.blink',
             score_offset = 100,
-          },
-          copilot = {
-            name = 'copilot',
-            module = 'blink-copilot',
-            score_offset = 100,
-            async = true,
           },
         },
       },
