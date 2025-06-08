@@ -27,6 +27,7 @@ local line_numbers_group = vim.api.nvim_create_augroup('kickstart/toggle_line_nu
 vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
   group = line_numbers_group,
   desc = 'Toggle relative line numbers on',
+
   callback = function()
     if vim.wo.nu and not vim.startswith(vim.api.nvim_get_mode().mode, 'i') then
       vim.wo.relativenumber = true
@@ -83,24 +84,8 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
   command = 'checktime',
 })
--- Remember cursor position
-vim.api.nvim_create_autocmd('BufReadPost', {
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    if mark[1] > 1 and mark[1] <= vim.api.nvim_buf_line_count(0) then
-      vim.api.nvim_win_set_cursor(0, mark)
-    end
-  end,
-})
-
 -- Auto-save when focus is lost
 vim.api.nvim_create_autocmd({ 'FocusLost', 'BufLeave' }, {
   pattern = '*',
   command = 'silent! wa',
-})
-
--- Remove trailing whitespace on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*',
-  command = [[%s/\s\+$//e]],
 })

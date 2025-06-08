@@ -1,6 +1,4 @@
--- ============================================================================
 -- Neovim Global Variables and Options Setup
--- ============================================================================
 
 -- Leader keys
 vim.g.mapleader = ' '
@@ -10,9 +8,8 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.g.deprecation_warnings = false
 vim.g.netrw_banner = 0
--- ============================================================================
+
 -- Core Vim Options
--- ============================================================================
 
 local opt = vim.opt
 local o = vim.o
@@ -37,6 +34,7 @@ opt.shortmess:append { W = true, I = true, c = true, C = true }
 -- Completion and Popup
 o.completeopt = 'menu,menuone,noselect'
 opt.pumblend = 10
+
 opt.pumheight = 10
 
 -- Search
@@ -55,6 +53,7 @@ opt.smartindent = true
 opt.breakindent = true
 opt.shiftround = true
 opt.shiftwidth = 2
+
 opt.tabstop = 2
 opt.expandtab = true
 opt.linebreak = true
@@ -62,6 +61,7 @@ opt.linebreak = true
 -- Split behavior
 opt.splitbelow = true
 opt.splitright = true
+
 opt.splitkeep = 'screen'
 
 -- UI symbols and formatting

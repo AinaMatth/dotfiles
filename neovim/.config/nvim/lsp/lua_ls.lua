@@ -11,8 +11,10 @@ return {
         enable = true,
         arrayIndex = 'Disable',
       },
+
       runtime = {
         version = 'LuaJIT',
+
       },
       workspace = {
         checkThirdParty = false,
