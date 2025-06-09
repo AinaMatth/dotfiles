@@ -88,7 +88,7 @@ later(function()
       html = { 'prettierd', 'prettier', stop_after_first = true },
       c = { 'clang-format' },
       quarto = { 'injected' },
-
+      sh = { 'shfmt' },
       markdown = { 'injected' },
       r = { 'air' },
     },
@@ -148,6 +148,7 @@ later(function()
     'clangd',
     'ruff',
     'rust_analyzer',
+    'vtsls',
   }
 end)
 later(function()
@@ -179,4 +180,40 @@ later(function()
   map('n', '<leader>rl', '<cmd>SlimeSend1 ls()<CR>', opts)
   map('n', '<leader>rq', '<cmd>SlimeSend1 q()<CR>', opts)
   map('n', '<leader>rr', '<cmd>SlimeSend1 rm(list = ls())<CR>', opts)
+end)
+later(function()
+  add { source = 'zbirenbaum/copilot.lua' }
+  ---@diagnostic disable-next-line: undefined-field
+  require('copilot').setup {
+    suggestion = {
+      auto_trigger = true,
+      hide_during_completion = false,
+    },
+    filetypes = {
+      markdown = true,
+      gitcommit = true,
+      ['*'] = function()
+        -- disable for files with specific names
+        local fname = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+        local disable_patterns = { 'env', 'conf', 'local', 'private' }
+        return vim.iter(disable_patterns):all(function(pattern)
+          return not string.match(fname, pattern)
+        end)
+      end,
+    },
+  }
+  local hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
+  vim.api.nvim_set_hl(0, 'CopilotSuggestion', vim.tbl_extend('force', hl, { underline = true }))
+end)
+later(function()
+  add {
+    source = 'olimorris/codecompanion.nvim',
+    depends = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+  }
+  require('codecompanion').setup {}
+  vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionChat Toggle<cr>', { desc = 'Toggle CodeCompanionChat' })
+  vim.keymap.set('n', '<leader>ca', '<cmd>CodeCompanionActions<cr>', { desc = 'CodeCompanion Actions' })
 end)

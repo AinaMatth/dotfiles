@@ -56,11 +56,9 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'PlenaryTestPopup',
     'checkhealth',
-    'oil',
+    'diff',
     'dbout',
-    'gitsigns-blame',
     'help',
-    'lspinfo',
     'notify',
     'qf',
     'startuptime',
