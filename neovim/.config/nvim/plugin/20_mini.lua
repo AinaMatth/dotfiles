@@ -60,7 +60,6 @@ now(function()
   vim.api.nvim_create_user_command('Zoom', function()
     MiniMisc.zoom(0, {})
   end, { desc = 'Zoom current buffer' })
-  vim.keymap.set('n', '<leader>z', '<cmd>Zoom<cr>', { desc = 'Zoom current buffer' })
 end)
 -- Later
 later(function()
@@ -68,9 +67,6 @@ later(function()
 end)
 later(function()
   require('mini.bufremove').setup()
-  vim.keymap.set('n', '<leader>bd', function()
-    require('mini.bufremove').delete(0, false)
-  end, { desc = 'Delete current buffer' })
 end)
 later(function()
   local animate = require 'mini.animate'
@@ -236,14 +232,6 @@ later(function()
 end)
 later(function()
   require('mini.files').setup { windows = { preview = true } }
-  local minifiles_toggle = function()
-    if not MiniFiles.close() then
-      MiniFiles.open()
-    end
-  end
-  vim.keymap.set('n', '<leader>e', function()
-    minifiles_toggle()
-  end, { desc = 'File explorer' })
 end)
 later(function()
   require('mini.git').setup()
@@ -251,34 +239,6 @@ end)
 later(function()
   require('mini.pick').setup()
   vim.ui.select = MiniPick.ui_select
-  -- stylua:ignore start
-  vim.keymap.set('n', '<leader>sf', function()
-    MiniPick.builtin.files {}
-  end, { desc = '[S]earch [f]iles' })
-  vim.keymap.set('n', '<leader>/', function()
-    MiniPick.builtin.grep_live {
-      tool = 'rg',
-      globs = { '**/*', '**/.*' },
-    }
-  end, { desc = '[S]earch [g]rep' })
-  vim.keymap.set('n', '<leader>sh', function()
-    MiniPick.builtin.help()
-  end, { desc = '[S]earch [h]elp' })
-
-  vim.keymap.set('n', '<leader>sb', function()
-    MiniExtra.pickers.buf_lines()
-  end, { desc = '[S]earch [g]rep buffer' })
-
-  vim.keymap.set('n', '<leader>sd', function()
-    MiniExtra.pickers.diagnostic()
-  end, { desc = '[S]earch [d]iagnostics' })
-
-  vim.keymap.set('n', '<leader>st', function()
-    MiniExtra.pickers.hipatterns()
-  end, { desc = '[S]earch [t]odo' })
-
-  vim.keymap.set('n', '<leader><leader>', '<cmd>Pick buffers<cr>', { desc = '[S]earch [b]uffers' })
-  -- stylua:ignore end
 end)
 later(function()
   require('mini.diff').setup()
@@ -316,7 +276,4 @@ later(function()
       scroll_line = '▶',
     },
   }
-  vim.keymap.set('n', '<leader>tf', MiniMap.toggle_focus, { desc = 'MiniMap.toggle_focus' })
-  vim.keymap.set('n', '<leader>ts', MiniMap.toggle_side, { desc = 'MiniMap.toggle_side' })
-  vim.keymap.set('n', '<leader>tt', MiniMap.toggle, { desc = 'MiniMap.toggle' })
 end)
