@@ -5,6 +5,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank { higroup = 'CurSearch', timeout = 200 }
   end,
 })
+vim.api.nvim_create_autocmd('UIEnter', {
+  callback = function()
+    vim.o.clipboard = 'unnamedplus'
+  end,
+})
+
 -- show cursor line only in active window
 vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter' }, {
   callback = function()
@@ -86,4 +92,28 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
 vim.api.nvim_create_autocmd({ 'FocusLost', 'BufLeave' }, {
   pattern = '*',
   command = 'silent! wa',
+})
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'CmdlineEnter' }, {
+  pattern = '*',
+  callback = function()
+    vim.opt.cmdheight = 1
+  end,
+})
+vim.api.nvim_create_autocmd('RecordingLeave', {
+  pattern = '*',
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
+})
+vim.api.nvim_create_autocmd('CmdlineLeave', {
+  pattern = '*',
+  callback = function()
+    if vim.fn.reg_recording() == '' then
+      vim.opt.cmdheight = 0
+    end
+  end,
+})
+vim.lsp.config('*', {
+  root_markers = { '.git' },
+  capabilities = require('mini.completion').get_lsp_capabilities(),
 })
