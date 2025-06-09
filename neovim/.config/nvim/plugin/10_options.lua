@@ -43,11 +43,6 @@ opt.smartcase = true
 opt.grepformat = '%f:%l:%c:%m'
 opt.grepprg = 'rg --vimgrep'
 
--- Clipboard (use schedule to ensure GUI-safe)
-vim.schedule(function()
-  opt.clipboard:append 'unnamedplus'
-end)
-
 -- Indentation
 opt.smartindent = true
 opt.breakindent = true
