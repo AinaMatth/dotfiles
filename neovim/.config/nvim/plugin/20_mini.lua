@@ -28,7 +28,7 @@ now(function()
     },
   }
   vim.api.nvim_set_hl(0, 'DiagnosticSignWarn', { fg = '#ffa657' })
-  vim.api.nvim_set_hl(0, 'DiagnosticVirtuaTextWarn', { fg = '#ffa657' })
+  vim.api.nvim_set_hl(0, 'DiagnosticVirtualLinesWarn', { fg = '#ffa657' })
 end)
 now(function()
   require('mini.icons').setup {}
@@ -186,6 +186,8 @@ later(function()
       clue.gen_clues.z(),
       { mode = 'n', keys = '<leader>t', desc = '+mini.map' },
       { mode = 'n', keys = '<leader>s', desc = '+mini.pick' },
+      { mode = 'n', keys = '<leader>r', desc = '+r' },
+      { mode = 'n', keys = '<leader>c', desc = '+code' },
     },
     window = {
       delay = 300,
