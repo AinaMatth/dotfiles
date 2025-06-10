@@ -41,7 +41,7 @@ opt.pumheight = 10
 opt.ignorecase = true
 opt.smartcase = true
 opt.grepformat = '%f:%l:%c:%m'
-opt.grepprg = 'rg --vimgrep'
+opt.grepprg = 'rg --vimgrep --hidden --glob "!.git/*" --glob "!node_modules/*"  --color=auto --heading --smart-case'
 
 -- Indentation
 opt.smartindent = true

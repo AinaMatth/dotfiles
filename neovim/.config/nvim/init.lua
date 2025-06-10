@@ -17,3 +17,14 @@ if not vim.loop.fs_stat(mini_path) then
 end
 
 require('mini.deps').setup { path = { package = path_package } }
+MiniDeps.now(function()
+  local default_rtp = vim.opt.runtimepath:get()
+  vim.opt.runtimepath:remove(vim.env.VIMRUNTIME)
+  vim.api.nvim_create_autocmd('SourcePre', {
+    pattern = '*/plugin/*',
+    once = true,
+    callback = function()
+      vim.opt.runtimepath = default_rtp
+    end,
+  })
+end)

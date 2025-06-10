@@ -71,14 +71,40 @@ keymap('n', '<leader>tt', '<cmd>MiniMap.toggle_focus<cr>', { desc = 'MiniMap.tog
 keymap('n', 'RR', 'R', { desc = 'Replace mode' })
 keymap('n', '<leader>ed', '<cmd>lua MiniFiles.open()<CR>', { desc = 'Directory' })
 keymap('n', '<leader>ef', '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', { desc = 'File Directory' })
-keymap('n', '<leader><leader>', '<cmd>Pick buffers<cr>', { desc = 'Buffers' })
-keymap('n', '<leader>sf', '<cmd>Pick files<cr>', { desc = 'Files' })
-keymap('n', '<leader>sh', '<cmd>Pick help<cr>', { desc = 'Help' })
-keymap('n', '<leader>sl', '<cmd>Pick buf_lines scope="all"<cr>', { desc = 'Lines (all)' })
-keymap('n', '<leader>sL', '<cmd>Pick buf_lines scope="current"<cr>', { desc = 'Lines (current)' })
-keymap('n', '<leader>sg', '<cmd>Pick grep_live<cr>', { desc = 'Grep live' })
-keymap('n', '<leader>ss', '<cmd>Pick lsp scope="workspace_symbol"<cr>', { desc = 'Symbols workspace (LSP)' })
-keymap('n', '<leader>sr', '<cmd>Pick lsp scope="references"<cr>', { desc = 'References (LSP)' })
-keymap('n', '<leader>sS', '<cmd>Pick lsp scope="document_symbol"<cr>', { desc = 'Symbols buffers (LSP)' })
-keymap('n', '<leader>sd', '<cmd>Pick diagnostic scope="all"<CR>', { desc = 'Diagnostic workspace' })
-keymap('n', '<leader>sb', '<cmd>Pick diagnostic scope="current"<CR>', { desc = 'Diagnostic buffer' })
+
+-- FzfLua
+keymap('n', '<leader>sf', '<cmd>FzfLua files<cr>', vim.tbl_extend('force', opts, { desc = 'Find Project Files' }))
+keymap(
+  'n',
+  '<leader>sc',
+  "<cmd>FzfLua files cwd='~/.dotfiles'<cr>",
+  vim.tbl_extend('force', opts, { desc = 'Find Dot Files' })
+)
+keymap('n', '<leader>sg', '<cmd>FzfLua live_grep_native<cr>', vim.tbl_extend('force', opts, { desc = 'Live Grep' }))
+keymap('n', '<leader>sr', '<cmd>FzfLua resume<cr>', vim.tbl_extend('force', opts, { desc = 'Resume' }))
+keymap('n', '<leader>sb', '<cmd>FzfLua blines<cr>', vim.tbl_extend('force', opts, { desc = 'Buffer lines' }))
+keymap('n', '<leader><leader>', '<cmd>FzfLua buffers<cr>', vim.tbl_extend('force', opts, { desc = 'Buffers' }))
+keymap('n', '<leader>/', '<cmd>FzfLua lgrep_curbuf<cr>', vim.tbl_extend('force', opts, { desc = 'Grep Buffer' }))
+keymap('n', '<leader>sh', '<cmd>FzfLua help_tags<cr>', vim.tbl_extend('force', opts, { desc = 'Help Tags' }))
+keymap('n', '<leader>sr', function()
+  vim.cmd 'rshada!'
+  require('fzf-lua').oldfiles()
+end, vim.tbl_extend('force', opts, { desc = 'Recently opened files' }))
+keymap(
+  'n',
+  '<leader>sd',
+  '<cmd>FzfLua lsp_document_symbols<cr>',
+  vim.tbl_extend('force', opts, { desc = 'Document Symbols' })
+)
+keymap(
+  'n',
+  '<leader>sw',
+  '<cmd>FzfLua lsp_workspace_symbols<cr>',
+  vim.tbl_extend('force', opts, { desc = 'Workspace Symbols' })
+)
+keymap(
+  'n',
+  '<leader>sD',
+  '<cmd>FzfLua diagnostics_documents<cr>',
+  vim.tbl_extend('force', opts, { desc = 'Diagnostics' })
+)

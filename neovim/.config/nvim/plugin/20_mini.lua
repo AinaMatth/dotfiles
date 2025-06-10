@@ -1,8 +1,8 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 add { name = 'mini.nvim', checkout = 'HEAD' }
+
 now(function()
   require('mini.base16').setup {
-
     palette = {
       base00 = '#0d1117',
       base01 = '#0d1117',
@@ -22,19 +22,18 @@ now(function()
       base0F = '#ffc4d4',
     },
     use_cterm = true,
-    plugins = {
-      default = false,
-      ['echasnovski/mini.nvim'] = true,
-    },
+    plugins = { default = false, ['echasnovski/mini.nvim'] = true },
   }
   vim.api.nvim_set_hl(0, 'DiagnosticSignWarn', { fg = '#ffa657' })
   vim.api.nvim_set_hl(0, 'DiagnosticVirtualLinesWarn', { fg = '#ffa657' })
 end)
+
 now(function()
   require('mini.icons').setup {}
   later(MiniIcons.mock_nvim_web_devicons)
   later(MiniIcons.tweak_lsp_kind)
 end)
+
 now(function()
   local statusline = require 'mini.statusline'
   statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -45,15 +44,15 @@ now(function()
   vim.opt.laststatus = 3
   vim.opt.cmdheight = 0
 end)
+
 now(function()
   require('mini.notify').setup {}
-  vim.notify = MiniNotify.make_notify {
-    ERROR = { duration = 10000 },
-  }
+  vim.notify = MiniNotify.make_notify { ERROR = { duration = 10000 } }
   vim.api.nvim_create_user_command('NotifyHistory', function()
     MiniNotify.show_history()
   end, { desc = 'Show notify history' })
 end)
+
 now(function()
   require('mini.misc').setup()
   MiniMisc.setup_restore_cursor()
@@ -63,6 +62,7 @@ now(function()
     MiniMisc.zoom(0, {})
   end, { desc = 'Zoom current buffer' })
 end)
+
 -- Later
 later(function()
   require('mini.extra').setup()
@@ -73,12 +73,8 @@ end)
 later(function()
   local animate = require 'mini.animate'
   animate.setup {
-    cursor = {
-      timing = animate.gen_timing.linear { duration = 100, unit = 'total' },
-    },
-    scroll = {
-      timing = animate.gen_timing.linear { duration = 150, unit = 'total' },
-    },
+    cursor = { timing = animate.gen_timing.linear { duration = 100, unit = 'total' } },
+    scroll = { timing = animate.gen_timing.linear { duration = 150, unit = 'total' } },
   }
 end)
 later(function()
@@ -86,7 +82,6 @@ later(function()
   local hi_words = require('mini.extra').gen_highlighter.words
   hipatterns.setup {
     highlighters = {
-      -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
       fixme = hi_words({ 'FIXME', 'Fixme', 'fixme' }, 'MiniHipatternsFixme'),
       hack = hi_words({ 'HACK', 'Hack', 'hack' }, 'MiniHipatternsHack'),
       todo = hi_words({ 'TODO', 'Todo', 'todo' }, 'MiniHipatternsTodo'),
@@ -105,8 +100,6 @@ later(function()
   require('mini.tabline').setup()
 end)
 later(function()
-  require('mini.bufremove').setup()
-
   vim.api.nvim_create_user_command('Bufdelete', function()
     MiniBufremove.delete()
   end, { desc = 'Remove buffer' })
@@ -146,35 +139,22 @@ later(function()
   end
   clue.setup {
     triggers = {
-      -- Leader triggers
       mode_nx '<leader>',
       { mode = 'i', keys = '<C-x>' },
-
-      -- `g` key
       mode_nx 'g',
-      -- Marks
       mode_nx "'",
       mode_nx '`',
-      -- Registers
       mode_nx '"',
       { mode = 'i', keys = '<c-r>' },
       { mode = 'c', keys = '<c-r>' },
-
-      -- Window commands
       { mode = 'n', keys = '<C-w>' },
-
-      -- `z` key
       mode_nx 'z',
-      -- surround
       mode_nx 's',
-
-      -- text object
       { mode = 'x', keys = 'i' },
       { mode = 'x', keys = 'a' },
       { mode = 'o', keys = 'i' },
       { mode = 'o', keys = 'a' },
     },
-
     clues = {
       clue.gen_clues.builtin_completion(),
       clue.gen_clues.g(),
@@ -183,7 +163,7 @@ later(function()
       clue.gen_clues.windows { submode_resize = true, submode_move = true },
       clue.gen_clues.z(),
       { mode = 'n', keys = '<leader>t', desc = '+mini.map' },
-      { mode = 'n', keys = '<leader>s', desc = '+mini.pick' },
+      { mode = 'n', keys = '<leader>s', desc = '+fzf' },
       { mode = 'n', keys = '<leader>r', desc = '+r' },
       { mode = 'n', keys = '<leader>c', desc = '+code' },
     },
@@ -206,7 +186,6 @@ later(function()
   end
   vim.opt.complete = { '.', 'w', 'k', 'b', 'u' }
   vim.opt.completeopt:append 'fuzzy'
-  -- define keycodes
   local keys = {
     cn = vim.keycode '<c-n>',
     cp = vim.keycode '<c-p>',
@@ -215,29 +194,18 @@ later(function()
     cr = vim.keycode '<cr>',
     cy = vim.keycode '<c-y>',
   }
-
-  -- select by <tab>/<s-tab>
   vim.keymap.set('i', '<tab>', function()
-    -- popup is visible -> next item
-    -- popup is NOT visible -> add indent
     return vim.fn.pumvisible() == 1 and keys.cn or keys.ct
   end, { expr = true, desc = 'Select next item if popup is visible' })
   vim.keymap.set('i', '<s-tab>', function()
-    -- popup is visible -> previous item
-    -- popup is NOT visible -> remove indent
     return vim.fn.pumvisible() == 1 and keys.cp or keys.cd
   end, { expr = true, desc = 'Select previous item if popup is visible' })
-
-  -- complete by <cr>
   vim.keymap.set('i', '<cr>', function()
     if vim.fn.pumvisible() == 0 then
-      -- popup is NOT visible -> insert newline
       return require('mini.pairs').cr()
     end
-
     local item_selected = vim.fn.complete_info()['selected'] ~= -1
     if item_selected then
-      -- popup is visible and item is selected -> complete item
       return keys.cy
     end
     return keys.cy .. keys.cr
@@ -254,13 +222,6 @@ later(function()
   require('mini.files').setup { windows = { preview = true } }
 end)
 later(function()
-  require('mini.git').setup()
-end)
-later(function()
-  require('mini.pick').setup()
-  vim.ui.select = MiniPick.ui_select
-end)
-later(function()
   require('mini.diff').setup()
   require('mini.git').setup()
 end)
@@ -272,11 +233,7 @@ later(function()
   vim.keymap.set('n', 'RR', 'R', { desc = 'Replace mode' })
 end)
 later(function()
-  require('mini.jump').setup {
-    delay = {
-      idle_stop = 10,
-    },
-  }
+  require('mini.jump').setup { delay = { idle_stop = 10 } }
 end)
 later(function()
   require('mini.jump2d').setup()
@@ -292,9 +249,7 @@ later(function()
       map.gen_integration.diff(),
       map.gen_integration.diagnostic(),
     },
-    symbols = {
-      scroll_line = '▶',
-    },
+    symbols = { scroll_line = '▶' },
   }
   vim.keymap.set('n', '<leader>tf', MiniMap.toggle_focus, { desc = 'MiniMap.toggle_focus' })
   vim.keymap.set('n', '<leader>ts', MiniMap.toggle_side, { desc = 'MiniMap.toggle_side' })

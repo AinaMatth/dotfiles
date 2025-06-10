@@ -217,3 +217,25 @@ later(function()
   vim.keymap.set('n', '<leader>cc', '<cmd>CodeCompanionChat Toggle<cr>', { desc = 'Toggle CodeCompanionChat' })
   vim.keymap.set('n', '<leader>ca', '<cmd>CodeCompanionActions<cr>', { desc = 'CodeCompanion Actions' })
 end)
+later(function()
+  add 'ibhagwan/fzf-lua'
+  require('fzf-lua').setup {
+    { 'max-perf', 'hide' },
+    fzf_colors = {
+      bg = { 'bg', 'Normal' },
+      gutter = { 'bg', 'Normal' },
+      info = { 'fg', 'Conditional' },
+      scrollbar = { 'bg', 'Normal' },
+      separator = { 'fg', 'Comment' },
+    },
+    fzf_opts = {
+      ['--info'] = 'default',
+      ['--layout'] = 'reverse-list',
+    },
+    winopts = {
+      preview = {
+        border = 'border-top',
+      },
+    },
+  }
+end)
