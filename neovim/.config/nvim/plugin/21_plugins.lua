@@ -145,6 +145,7 @@ later(function()
     'lua_ls',
     'air',
     'r_language_server',
+    'marksman',
     'clangd',
     'ruff',
     'rust_analyzer',
@@ -238,4 +239,15 @@ later(function()
       },
     },
   }
+end)
+now(function()
+  local default_rtp = vim.opt.runtimepath:get()
+  vim.opt.runtimepath:remove(vim.env.VIMRUNTIME)
+  vim.api.nvim_create_autocmd('SourcePre', {
+    pattern = '*/plugin/*',
+    once = true,
+    callback = function()
+      vim.opt.runtimepath = default_rtp
+    end,
+  })
 end)
