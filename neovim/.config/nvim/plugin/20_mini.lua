@@ -226,13 +226,6 @@ later(function()
   require('mini.git').setup()
 end)
 later(function()
-  require('mini.operators').setup {
-    replace = { prefix = 'R' },
-    exchange = { prefix = '/' },
-  }
-  vim.keymap.set('n', 'RR', 'R', { desc = 'Replace mode' })
-end)
-later(function()
   require('mini.jump').setup { delay = { idle_stop = 10 } }
 end)
 later(function()

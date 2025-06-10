@@ -127,6 +127,7 @@ later(function()
 end)
 
 later(function()
+  add 'neovim/nvim-lspconfig'
   vim.diagnostic.config {
     severit_sort = true,
     virtual_lines = { current_line = true },
