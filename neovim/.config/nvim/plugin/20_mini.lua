@@ -167,6 +167,19 @@ later(function()
       { mode = 'n', keys = '<leader>r', desc = '+r' },
       { mode = 'n', keys = '<leader>c', desc = '+code' },
     },
+    window = {
+      delay = 300,
+      config = function(bufnr)
+        local max_width = 0
+        for _, line in ipairs(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)) do
+          max_width = math.max(max_width, vim.fn.strchars(line))
+        end
+        max_width = max_width + 2
+        return {
+          width = math.min(70, max_width),
+        }
+      end,
+    },
   }
 end)
 later(function()
