@@ -133,56 +133,6 @@ later(function()
   }
 end)
 later(function()
-  local clue = require 'mini.clue'
-  local function mode_nx(keys)
-    return { mode = 'n', keys = keys }, { mode = 'x', keys = keys }
-  end
-  clue.setup {
-    triggers = {
-      mode_nx '<leader>',
-      { mode = 'i', keys = '<C-x>' },
-      mode_nx 'g',
-      mode_nx "'",
-      mode_nx '`',
-      mode_nx '"',
-      { mode = 'i', keys = '<c-r>' },
-      { mode = 'c', keys = '<c-r>' },
-      { mode = 'n', keys = '<C-w>' },
-      mode_nx 'z',
-      mode_nx 's',
-      { mode = 'x', keys = 'i' },
-      { mode = 'x', keys = 'a' },
-      { mode = 'o', keys = 'i' },
-      { mode = 'o', keys = 'a' },
-    },
-    clues = {
-      clue.gen_clues.builtin_completion(),
-      clue.gen_clues.g(),
-      clue.gen_clues.marks(),
-      clue.gen_clues.registers { show_contents = true },
-      clue.gen_clues.windows { submode_resize = true, submode_move = true },
-      clue.gen_clues.z(),
-      { mode = 'n', keys = '<leader>t', desc = '+mini.map' },
-      { mode = 'n', keys = '<leader>s', desc = '+fzf' },
-      { mode = 'n', keys = '<leader>r', desc = '+r' },
-      { mode = 'n', keys = '<leader>c', desc = '+code' },
-    },
-    window = {
-      delay = 300,
-      config = function(bufnr)
-        local max_width = 0
-        for _, line in ipairs(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)) do
-          max_width = math.max(max_width, vim.fn.strchars(line))
-        end
-        max_width = max_width + 2
-        return {
-          width = math.min(70, max_width),
-        }
-      end,
-    },
-  }
-end)
-later(function()
   require('mini.fuzzy').setup()
   require('mini.completion').setup {
     lsp_completion = {
@@ -235,7 +185,16 @@ later(function()
   require('mini.files').setup { windows = { preview = true } }
 end)
 later(function()
-  require('mini.diff').setup()
+  require('mini.diff').setup {
+    view = {
+      style = 'sign',
+      signs = {
+        add = '▎',
+        change = '▎',
+        delete = '',
+      },
+    },
+  }
   require('mini.git').setup()
 end)
 later(function()
