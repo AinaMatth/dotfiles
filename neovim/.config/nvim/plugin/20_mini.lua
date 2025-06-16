@@ -13,19 +13,17 @@ now(function()
       base06 = '#f0f6fc',
       base07 = '#ffffff',
       base08 = '#ff7b72',
-      base09 = '#ffa657',
+      base09 = '#d2a8ff',
       base0A = '#f9e2af',
       base0B = '#7ce38b',
       base0C = '#89ddff',
       base0D = '#79c0ff',
-      base0E = '#d2a8ff',
+      base0E = '#ffa657',
       base0F = '#ffc4d4',
     },
     use_cterm = true,
-    plugins = { default = false, ['echasnovski/mini.nvim'] = true },
+    plugins = { default = true, ['echasnovski/mini.nvim'] = true },
   }
-  vim.api.nvim_set_hl(0, 'DiagnosticSignWarn', { fg = '#ffa657' })
-  vim.api.nvim_set_hl(0, 'DiagnosticVirtualLinesWarn', { fg = '#ffa657' })
 end)
 
 now(function()
