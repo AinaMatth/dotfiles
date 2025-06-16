@@ -79,6 +79,10 @@ later(function()
     max_concurrent_installers = 10,
   }
 end)
+now(function()
+  add 'nmac427/guess-indent.nvim'
+  require('guess-indent').setup {}
+end)
 later(function()
   add 'stevearc/conform.nvim'
   require('conform').setup {
