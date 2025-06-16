@@ -37,4 +37,4 @@ Welcome to my personal **dotfiles** repository! 🎉 This is where I keep my con
 ## 🖼️ Config Preview
 
 Here's a sneak peek at my Neovim setup:
-![Image](https://github.com/user-attachments/assets/e9fe7cc0-326c-4ceb-9a2a-de3b0075e832)
+![Image](https://github.com/user-attachments/assets/ffd78b95-ea23-44e3-9a27-d083dc45c3f6)
