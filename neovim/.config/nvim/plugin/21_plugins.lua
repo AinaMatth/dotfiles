@@ -233,11 +233,30 @@ later(function()
     fzf_opts = {
       ['--info'] = 'default',
       ['--layout'] = 'reverse-list',
+      ['--no-scrollbar'] = true,
     },
     winopts = {
+      width = 0.8,
+      height = 0.8,
+      row = 0.5,
+      col = 0.5,
       preview = {
         border = 'border-top',
+        scrollchars = { '┃', '' },
       },
+    },
+    oldfiles = {
+      include_current_session = true,
+    },
+    previewers = {
+      builtin = {
+        syntax_limit_b = 1024 * 100,
+      },
+    },
+    grep = {
+      rg_glob = true,
+      glob_flag = '--iglob',
+      glob_separator = '%s%-%-',
     },
   }
 end)
