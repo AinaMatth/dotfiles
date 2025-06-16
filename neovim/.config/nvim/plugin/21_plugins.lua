@@ -241,6 +241,41 @@ later(function()
     },
   }
 end)
+later(function()
+  add 'folke/which-key.nvim'
+  require('which-key').setup {
+    preset = 'helix',
+    defaults = {},
+    spec = {
+      {
+        mode = { 'n', 'v' },
+        { '<leader>c', group = 'code' },
+        { '<leader>r', group = 'r' },
+        { '<leader>s', group = 'search' },
+        { '<leader>t', group = 'minimap' },
+        { 'g', group = 'goto' },
+        { 's', group = 'surround' },
+        { 'z', group = 'fold' },
+        {
+          '<leader>b',
+          group = 'buffer',
+          expand = function()
+            return require('which-key.extras').expand.buf()
+          end,
+        },
+        {
+          '<leader>w',
+          group = 'windows',
+          proxy = '<c-w>',
+          expand = function()
+            return require('which-key.extras').expand.win()
+          end,
+        },
+        { 'gx', desc = 'Open with system app' },
+      },
+    },
+  }
+end)
 now(function()
   local default_rtp = vim.opt.runtimepath:get()
   vim.opt.runtimepath:remove(vim.env.VIMRUNTIME)
