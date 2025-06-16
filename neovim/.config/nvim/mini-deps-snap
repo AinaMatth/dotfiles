@@ -1,13 +1,14 @@
 return {
-  ["codecompanion.nvim"] = "f57260190a40bb4f071d27c5386eeff1440c111b",
+  ["codecompanion.nvim"] = "ac1c3c9d937eb90280eecd00efc12b1b9858b94f",
   ["conform.nvim"] = "8132ec733eed3bf415b97b76797ca41b59f51d7d",
   ["copilot.lua"] = "c1bb86abbed1a52a11ab3944ef00c8410520543d",
   ["friendly-snippets"] = "572f5660cf05f8cd8834e096d7b4c921ba18e175",
-  ["fzf-lua"] = "1977a7648a264fabf453ee082e2398e38cc3b588",
+  ["fzf-lua"] = "d155cc9648ba391f64876888ea0ae09a7aff469d",
   ["lazydev.nvim"] = "2367a6c0a01eb9edb0464731cc0fb61ed9ab9d2c",
   ["mason.nvim"] = "8024d64e1330b86044fed4c8494ef3dcd483a67c",
   ["mini.nvim"] = "35e1767f4cd7dde51256eabae7349a5283a43cba",
-  ["nvim-treesitter"] = "0fb1c6e92e6a03374d578b362301dbd22abd3840",
+  ["nvim-lspconfig"] = "7ad4a11cc5742774877c529fcfb2702f7caf75e4",
+  ["nvim-treesitter"] = "a64ef334be4f47cab7effdd08b57d7b38235eeb7",
   ["nvim-treesitter-textobjects"] = "fa32a45fdbab9c9c3bda9ecec9b12dddb221b927",
   ["plenary.nvim"] = "857c5ac632080dba10aae49dba902ce3abf91b35",
   ["vim-slime"] = "507107dd24c9b85721fa589462fd5068e0f70266"
